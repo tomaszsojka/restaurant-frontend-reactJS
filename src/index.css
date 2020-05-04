@@ -1,3 +1,7 @@
+html{
+  height: 100%;
+}
+
 body
 {
   margin: 0;
@@ -7,7 +11,8 @@ body
   /*background-image: url("bg.png");
   background-size: cover;*/
   min-height: 600px;
-  background-attachment: fixed;
+
+  height: 100%;
 }
 
 .Menu1 {
