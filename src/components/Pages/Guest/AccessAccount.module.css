@@ -132,7 +132,7 @@
     color: white;
 }
 
-.dangerError {
+.passingError {
     color: #e74c3c;
     font-size: 16px;
 }

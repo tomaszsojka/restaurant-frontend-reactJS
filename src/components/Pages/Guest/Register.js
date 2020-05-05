@@ -43,6 +43,7 @@ export class Register extends React.Component {
         this.clearValidationErr("email");
 
     }
+
     onPhoneNumberChange(e) {
         this.setState({
             phoneNumber: e.target.value
@@ -58,7 +59,6 @@ export class Register extends React.Component {
     }
 
     submitRegister(e) {
-
         if(this.state.phoneNumber == "") {
             this.showValidationErr("phoneNumber", "Phone number cannot be empty");
         }
@@ -103,7 +103,7 @@ export class Register extends React.Component {
                                 placeholder="Phone Number"
                                 onChange={this.onPhoneNumberChange.bind(this)}
                             />
-                            <small className={classes.dangerError}>{ phoneNumberErr ? phoneNumberErr : "" }</small>
+                            <small className={classes.passingError}>{ phoneNumberErr ? phoneNumberErr : "" }</small>
                         </div>
 
                         <div className={classes.inputGroup}>
@@ -115,7 +115,7 @@ export class Register extends React.Component {
                                 placeholder="Email"
                                 onChange={this.onEmailChange.bind(this)}
                             />
-                            <small className={classes.dangerError}>{ emailErr ? emailErr : "" }</small>
+                            <small className={classes.passingError}>{ emailErr ? emailErr : "" }</small>
                         </div>
 
                         <div className={classes.inputGroup}>
@@ -127,7 +127,7 @@ export class Register extends React.Component {
                                 placeholder="Password"
                                 onChange={this.onPasswordChange.bind(this)}
                             />
-                            <small className={classes.dangerError}>{ passwordErr ? passwordErr : "" }</small>
+                            <small className={classes.passingError}>{ passwordErr ? passwordErr : "" }</small>
                         </div>
                         <button
                             type="button"
