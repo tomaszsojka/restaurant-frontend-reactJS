@@ -7,7 +7,7 @@ import  {Footer} from "./components/Navigation/Footer";
 import {Home} from "./components/Pages/Guest/Home"
 import {Menu} from "./components/Pages/Guest/Menu"
 import {Contact} from "./components/Pages/Guest/Contact";
-import {Gallery} from "./components/Pages/Guest/Gallery";
+import {PhotoGallery} from "./components/Pages/Guest/PhotoGallery";
 import "./components/Navigation/Toolbar/Toolbar"
 import {Error} from "./components/Pages/Error";
 import {OrderOnline} from "./components/Pages/Guest/OrderOnline";
@@ -31,12 +31,11 @@ export class App extends React.Component {
         <Router >
             <div style={{height: '100%'}}>
                 <Navigation/>
-                <hr />
                 <Switch>
                     <Route exact path={"/"} component={Home}/>
                     <Route path={"/menu"} component={Menu}/>
                     <Route path={"/contact"} component={Contact}/>
-                    <Route path={"/gallery"} component={Gallery}/>
+                    <Route path={"/gallery"} component={PhotoGallery}/>
                     <Route path={"/order_online"} component={OrderOnline}/>
                     <Route component={Error}/>
                 </Switch>
