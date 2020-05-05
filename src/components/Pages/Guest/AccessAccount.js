@@ -1,0 +1,50 @@
+import React from "react";
+
+import classes from "./AccessAccount.module.css";
+import {Login} from "./Login";
+import {Register} from "./Register";
+
+export class AccessAccount extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { isLoginOpen: true, isRegisterOpen: false };
+    }
+
+    showLoginBox() {
+        this.setState({
+            isLoginOpen: true,
+            isRegisterOpen: false
+        });
+    }
+
+    showRegisterBox() {
+        this.setState({
+            isRegisterOpen: true,
+            isLoginOpen: false
+        });
+    }
+
+    render() {
+        return (
+            <div className={classes.mainContainer}>
+                <hr/>
+                <div className={classes.boxController}>
+                    <div className={classes.controller + " " + (this.state.isLoginOpen ? classes.selectedController : "")}
+                         onClick={this.showLoginBox.bind(this)}>
+                        Login
+                    </div>
+                    <div className={classes.controller + " " + (this.state.isRegisterOpen ? classes.selectedController : "")}
+                         onClick={this.showRegisterBox.bind(this)}>
+                        Register
+                    </div>
+                </div>
+                <div className={classes.boxContainer}>
+                    {this.state.isLoginOpen && <Login/>}
+                    {this.state.isRegisterOpen && <Register/>}
+
+                </div>
+            </div>
+        );
+    }
+}
