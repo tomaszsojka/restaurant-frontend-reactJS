@@ -28,7 +28,7 @@ export class Register extends React.Component {
         this.setState((prevState) => {
             let newArr = [];
             for(let err of prevState.errors) {
-                if(elm != err.elm) {
+                if(elm !== err.elm) {
                     newArr.push(err);
                 }
             }
@@ -59,13 +59,13 @@ export class Register extends React.Component {
     }
 
     submitRegister(e) {
-        if(this.state.phoneNumber == "") {
+        if(this.state.phoneNumber === "") {
             this.showValidationErr("phoneNumber", "Phone number cannot be empty");
         }
-        if(this.state.email == "") {
+        if(this.state.email === "") {
             this.showValidationErr("email", "Email address cannot be empty");
         }
-        if(this.state.password == "") {
+        if(this.state.password === "") {
             this.showValidationErr("password", "Password cannot be empty");
         }
     }
@@ -75,13 +75,13 @@ export class Register extends React.Component {
         let phoneNumberErr = null, emailErr = null, passwordErr = null;
 
         for(let err of this.state.errors) {
-            if(err.elm == "phoneNumber") {
+            if(err.elm === "phoneNumber") {
                 phoneNumberErr = err.msg;
             }
-            if(err.elm == "email") {
+            if(err.elm === "email") {
                 emailErr = err.msg;
             }
-            if(err.elm == "password") {
+            if(err.elm === "password") {
                 passwordErr = err.msg;
             }
         }
@@ -109,7 +109,7 @@ export class Register extends React.Component {
                         <div className={classes.inputGroup}>
                             <label htmlFor="email">Email</label>
                             <input
-                                type="text"
+                                type="email"
                                 name="email"
                                 className={classes.loginInput}
                                 placeholder="Email"
