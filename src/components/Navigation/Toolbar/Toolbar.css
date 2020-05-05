@@ -1,7 +1,7 @@
 .toolbar{
     postion: fixed;
     width: 100%;
-    background: gray;
+    background: olivedrab;
     height: 60px;
     top: 0;
     left: 0;
@@ -34,7 +34,7 @@
     display: flex;
 }
 .toolbar_navigation_items li{
-   padding: 0 5px;
+   padding: 0 6px;
 }
 
 .toolbar_navigation_items a{

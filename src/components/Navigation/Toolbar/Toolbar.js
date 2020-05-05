@@ -12,9 +12,10 @@ const Toolbar = props => (
             <div className={"toolbar_navigation_items"}>
       <ul>
           <li><a href="/menu">Menu</a></li>
-          <li><a href="/galery">Galery</a></li>
-          <li><a href="/">MainPage</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="/contact">Contact</a></li>
+          <li><a href="/order_online">Order Online</a> </li>
       </ul>
   </div>
         </nav>

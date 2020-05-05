@@ -1,0 +1,14 @@
+.mainContainer {
+    max-width: 800px;
+    min-height: 400px;
+    max-height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFFFF;
+    border: 3px solid #000000;
+    border-radius: 10px;
+}
+
+.image {
+    width: 99%;
+}

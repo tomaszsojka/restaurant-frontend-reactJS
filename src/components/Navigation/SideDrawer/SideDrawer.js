@@ -9,8 +9,8 @@ const SideDrawer = props => {
    }
     return( <nav className={drawerClasses}>
         <ul>
-            <li><a href='\menu'>xD</a></li>
-            <li><a href='\home'>heh</a></li>
+            <li><a href='\menu'>menu</a></li>
+            <li><a href='\'>home</a></li>
         </ul>
     </nav>
    );

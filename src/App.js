@@ -2,16 +2,15 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
-import {Header} from "./components/guestPages/Header";
-import  {Footer} from "./components/guestPages/Footer";
-import {MainPage} from "./components/guestPages/MainPage"
-import {MenuPage} from "./components/guestPages/MenuPage"
-import {ContactPage} from "./components/guestPages/ContactPage";
-import {GalleryPage} from "./components/guestPages/GalleryPage";
-import "./components/Toolbar/Toolbar"
-import Toolbar from "./components/Toolbar/Toolbar";
-import SideDrawer from "./components/SideDrawer/SideDrawer";
-import BackDrop from "./components/Backdrop/Backdrop";
+import {Navigation} from "./components/Navigation/Navigation";
+import  {Footer} from "./components/Navigation/Footer";
+import {Home} from "./components/Pages/Guest/Home"
+import {Menu} from "./components/Pages/Guest/Menu"
+import {Contact} from "./components/Pages/Guest/Contact";
+import {Gallery} from "./components/Pages/Guest/Gallery";
+import "./components/Navigation/Toolbar/Toolbar"
+import {Error} from "./components/Pages/Error";
+import {OrderOnline} from "./components/Pages/Guest/OrderOnline";
 export class App extends React.Component {
  state = {
    sideDrawerOpen: false
@@ -28,23 +27,18 @@ export class App extends React.Component {
   };
 
     render() {
-        let sideDrawer;
-        let backDrop;
-
-        if(this.state.sideDrawerOpen){
-
-            backDrop = <BackDrop click={this.backdropClickHandler}/>
-        }
     return (
-        <Router style={{height:'100%'}}>
-
+        <Router >
             <div style={{height: '100%'}}>
-                <Header/>
+                <Navigation/>
                 <hr />
                 <Switch>
-                    <Route exact path={"/"} component={MainPage}/>
-                    <Route path={"/menu"} component={MenuPage}/>
-                    <Route path={"/contact"} component={ContactPage}/>
+                    <Route exact path={"/"} component={Home}/>
+                    <Route path={"/menu"} component={Menu}/>
+                    <Route path={"/contact"} component={Contact}/>
+                    <Route path={"/gallery"} component={Gallery}/>
+                    <Route path={"/order_online"} component={OrderOnline}/>
+                    <Route component={Error}/>
                 </Switch>
                 <Footer/>
                 </div>

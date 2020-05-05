@@ -1,11 +1,10 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
-import "./../Toolbar/Toolbar";
-import "./../../index.css";
-import Toolbar from "../Toolbar/Toolbar";
-import BackDrop from "../Backdrop/Backdrop";
-import SideDrawer from "../SideDrawer/SideDrawer";
-export class Header extends React.Component {
+import "./Toolbar/Toolbar";
+//import "./../index.css/../../index.css";
+import Toolbar from "./Toolbar/Toolbar";
+import BackDrop from "./Backdrop/Backdrop";
+import SideDrawer from "./SideDrawer/SideDrawer";
+export class Navigation extends React.Component {
     state = {
         sideDrawerOpen: false
     };
@@ -34,9 +33,8 @@ export class Header extends React.Component {
                 <SideDrawer show={this.state.sideDrawerOpen} />
                 {backDrop}
             </div>
-
     );
 }
 }
-export default Header;
+export default Navigation;
 
