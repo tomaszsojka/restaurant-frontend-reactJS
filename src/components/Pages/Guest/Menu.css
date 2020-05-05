@@ -7,12 +7,12 @@
 
 .Menu_elements{
     position: center;
-    margin: 0px 300px;
+    margin: 0px 20%;
 }
 
 img{
-    height: 300px;
-    width:900px;
+    height: 10%;
+    width:99%;
 
     border-radius:5px ;
 }

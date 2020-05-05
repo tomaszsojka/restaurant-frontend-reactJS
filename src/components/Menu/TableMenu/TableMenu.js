@@ -11,7 +11,7 @@ export function TableMenu({data,setOrdered}){
             </thead>
             <tbody>
             {data.map((meal) =>
-                <tr key={'${data.id}'}>
+                <tr key={meal.id}>
                     <td>{meal.name}</td>
                     <td>{meal.description}</td>
                     <td>{meal.price}</td>
