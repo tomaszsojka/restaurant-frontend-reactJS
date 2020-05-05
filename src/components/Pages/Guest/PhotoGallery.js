@@ -3,62 +3,103 @@ import classes from "./PhotoGallery.module.css";
 import Gallery from 'react-grid-gallery';
 
 const IMAGES =
-    [{
-        src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-        thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
-        thumbnailWidth: 320,
-        thumbnailHeight: 174,
-        caption: "After Rain (Jeshu John - designerspics.com)"
-    },
-        {
-            src: "https://c6.staticflickr.com/9/8890/28897154101_a8f55be225_b.jpg",
-            thumbnail: "https://c6.staticflickr.com/9/8890/28897154101_a8f55be225_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 183,
-            caption: "37H (gratispgraphy.com)"
+    [   {
+            src: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3149-copy.jpg",
+            thumbnail: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3149-copy-400x400.jpg",
+            thumbnailWidth: 400,
+            thumbnailHeight: 400
         },
         {
-            src: "https://c7.staticflickr.com/9/8106/28941228886_86d1450016_b.jpg",
-            thumbnail: "https://c7.staticflickr.com/9/8106/28941228886_86d1450016_n.jpg",
-            thumbnailWidth: 271,
-            thumbnailHeight: 320,
-            caption: "Orange Macro (Tom Eversley - isorepublic.com)"
+            src: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3130-copy.jpg",
+            thumbnail: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3130-copy-400x400.jpg",
+            thumbnailWidth: 400,
+            thumbnailHeight: 400
         },
         {
-            src: "https://c6.staticflickr.com/9/8342/28897193381_800db6419e_b.jpg",
-            thumbnail: "https://c6.staticflickr.com/9/8342/28897193381_800db6419e_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 213,
-            caption: "201H (gratisography.com)"
+            src: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_4084.jpg",
+            thumbnail: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_4084-400x400.jpg",
+            thumbnailWidth: 400,
+            thumbnailHeight: 400
         },
         {
-            src: "https://c8.staticflickr.com/9/8104/28973555735_ae7c208970_b.jpg",
-            thumbnail: "https://c8.staticflickr.com/9/8104/28973555735_ae7c208970_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 213,
-            caption: "Flower Interior Macro (Tom Eversley - isorepublic.com)"
+            src: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_4105.jpg",
+            thumbnail: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_4105-400x400.jpg",
+            thumbnailWidth: 400,
+            thumbnailHeight: 400
         },
         {
-            src: "https://c1.staticflickr.com/9/8707/28868704912_cba5c6600e_b.jpg",
-            thumbnail: "https://c1.staticflickr.com/9/8707/28868704912_cba5c6600e_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 213,
-            caption: "Man on BMX (Tom Eversley - isorepublic.com)"
+            src: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3355-copy.jpg",
+            thumbnail: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3355-copy-400x400.jpg",
+            thumbnailWidth: 400,
+            thumbnailHeight: 400
         },
         {
-            src: "https://c4.staticflickr.com/9/8578/28357117603_97a8233cf5_b.jpg",
-            thumbnail: "https://c4.staticflickr.com/9/8578/28357117603_97a8233cf5_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 213,
-            caption: "Ropeman - Thailand (Tom Eversley - isorepublic.com)"
+            src: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3304-copy.jpg",
+            thumbnail: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3304-copy-400x400.jpg",
+            thumbnailWidth: 400,
+            thumbnailHeight: 400
         },
         {
-            src: "https://c1.staticflickr.com/9/8056/28354485944_148d6a5fc1_b.jpg",
-            thumbnail: "https://c1.staticflickr.com/9/8056/28354485944_148d6a5fc1_n.jpg",
-            thumbnailWidth: 257,
-            thumbnailHeight: 320,
-            caption: "A photo by 贝莉儿 NG. (unsplash.com)"
+            src: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3065-copy.jpg",
+            thumbnail: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3065-copy-400x400.jpg",
+            thumbnailWidth: 400,
+            thumbnailHeight: 400
+        },
+        {
+            src: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3340-copy.jpg",
+            thumbnail: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3340-copy-400x400.jpg",
+            thumbnailWidth: 400,
+            thumbnailHeight: 400
+        },
+        {
+            src: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3011-copy.jpg",
+            thumbnail: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3011-copy-400x400.jpg",
+            thumbnailWidth: 400,
+            thumbnailHeight: 400
+        },
+        {
+            src: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_5016-copy.jpg",
+            thumbnail: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_5016-copy-400x400.jpg",
+            thumbnailWidth: 400,
+            thumbnailHeight: 400
+        },
+        {
+            src: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_4924-copy.jpg",
+            thumbnail: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_4924-copy-400x400.jpg",
+            thumbnailWidth: 400,
+            thumbnailHeight: 400
+        },
+        {
+            src: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3485-copy.jpg",
+            thumbnail: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3485-copy-400x400.jpg",
+            thumbnailWidth: 400,
+            thumbnailHeight: 400
+        },
+        {
+            src: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3366-copy.jpg",
+            thumbnail: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3366-copy-400x400.jpg",
+            thumbnailWidth: 400,
+            thumbnailHeight: 400
+        },
+        {
+            src: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_5120-copy.jpg",
+            thumbnail: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_5120-copy-400x400.jpg",
+            thumbnailWidth: 400,
+            thumbnailHeight: 400
+        },
+        {
+            src: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3640-copy.jpg",
+            thumbnail: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_3640-copy-400x400.jpg",
+            thumbnailWidth: 400,
+            thumbnailHeight: 400
+        },
+        {
+            src: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_2871-1.jpg",
+            thumbnail: "http://pizzeria-zielona-dolina.pl/wp-content/uploads/2019/07/DSC_2871-1-400x400.jpg",
+            thumbnailWidth: 400,
+            thumbnailHeight: 400
         }
+
     ]
 
 
@@ -67,7 +108,7 @@ export class PhotoGallery extends React.Component {
         return (
             <div className={classes.mainContainer}>
                 <Gallery images={IMAGES}
-                         enableImageSelection={false}/>
+                         enableImageSelection={false} rowHeight={370}/>
             </div>
 
         );
