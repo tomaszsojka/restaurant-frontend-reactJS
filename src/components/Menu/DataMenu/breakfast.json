@@ -1,0 +1,25 @@
+[
+  {"id": 1,
+    "name": "Jajecznica",
+    "description": "z jajek kurzych",
+    "price": 8
+},
+  {"id": 2,
+    "name": "Jajko sadzone",
+    "description": "z jajek kurzych",
+    "price": 7
+
+  },
+  {"id": 3,
+    "name": "Omlet",
+    "description": "z jajek kurzych",
+    "price": 9
+
+  },
+  {"id": 4,
+    "name": "Jajko na twardo",
+    "description": "z jajek kurzych",
+    "price": 10
+
+  }
+]

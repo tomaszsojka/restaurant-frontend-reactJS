@@ -1,0 +1,18 @@
+.toast.show{
+    position: fixed;
+    left:20px;
+    bottom:20px;
+    z-index: 10;
+}
+
+.Menu_elements{
+    position: center;
+    margin: 0px 300px;
+}
+
+img{
+    height: 300px;
+    width:900px;
+
+    border-radius:5px ;
+}

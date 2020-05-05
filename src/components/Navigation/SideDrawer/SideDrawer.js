@@ -7,12 +7,18 @@ const SideDrawer = props => {
    if(props.show){
        drawerClasses = ['side-drawer open'];
    }
-    return( <nav className={drawerClasses}>
-        <ul>
-            <li><a href='\menu'>menu</a></li>
-            <li><a href='\'>home</a></li>
-        </ul>
-    </nav>
+    return( <div className={drawerClasses}>
+<div>
+    <p>Basket</p>
+    <hr />
+<div>
+
+</div>
+    <hr />
+<p>Sum: </p>
+    <button>Checkout </button>
+</div>
+    </div>
    );
 };
 
