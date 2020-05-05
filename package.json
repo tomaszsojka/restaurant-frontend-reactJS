@@ -7,8 +7,13 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
+<<<<<<< HEAD
+    "node-sass": "^4.14.1",
+=======
     "mdbreact": "^4.26.0",
+>>>>>>> ea6e2f63c15f80c5de885b58e6e249418d164241
     "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
     "react-grid-gallery": "^0.5.5",
     "react-router-dom": "^5.1.2",

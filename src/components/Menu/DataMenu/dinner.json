@@ -1,0 +1,20 @@
+[
+  {"id": 31,
+    "name": "Kotlet schabowy",
+    "description": "z mizzerią i solą",
+    "price": 8
+  },
+  {"id": 32,
+    "name": "Kamień",
+    "description": "z wodą",
+    "price": 7
+
+  },
+  {"id": 33,
+    "name": "Pizza",
+    "description": "z serem",
+    "price": 9
+
+  }
+
+]

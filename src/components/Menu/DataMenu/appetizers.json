@@ -1,0 +1,19 @@
+[
+  {"id": 12,
+    "name": "Shrimps",
+    "description": "sea fruit",
+    "price": 8
+  },
+  {"id": 22,
+    "name": "Vanilla ice cream",
+    "description": "made from ice",
+    "price": 7
+
+  },
+  {"id": 23,
+    "name": "Pizza",
+    "description": "with cheese",
+    "price": 9
+  }
+
+]
