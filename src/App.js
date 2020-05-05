@@ -11,21 +11,8 @@ import {PhotoGallery} from "./components/Pages/Guest/PhotoGallery";
 import "./components/Navigation/Toolbar/Toolbar"
 import {Error} from "./components/Pages/Error";
 import {OrderOnline} from "./components/Pages/Guest/OrderOnline";
+import {AccessAccount} from "./components/Pages/Guest/AccessAccount";
 export class App extends React.Component {
- state = {
-   sideDrawerOpen: false
- };
-
-  drawerToggleClickHandler = () => {
-  this.setState((prevState) => {
-      return{sideDrawerOpen: !prevState.sideDrawerOpen};
-      });
-  };
-
-  backdropClickHandler = () =>{
-      this.setState({sideDrawerOpen: false});
-  };
-
     render() {
     return (
         <Router >
@@ -37,6 +24,7 @@ export class App extends React.Component {
                     <Route path={"/contact"} component={Contact}/>
                     <Route path={"/gallery"} component={PhotoGallery}/>
                     <Route path={"/order_online"} component={OrderOnline}/>
+                    <Route path={"/access_account"} component={AccessAccount}/>
                     <Route component={Error}/>
                 </Switch>
                 <Footer/>
