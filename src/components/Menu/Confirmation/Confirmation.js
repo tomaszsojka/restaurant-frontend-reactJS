@@ -1,8 +1,9 @@
-import React from 'react'
-import {Toast} from 'react-bootstrap'
+import React from "react"
+import {Toast} from "react-bootstrap"
+import classes from "./Confirmation.module.css"
 export function Confirmation({toggle}){
 return(
-    <Toast onClose={()=>toggle(false)} >
+    <Toast className={classes.toastShow} clonClose={()=>toggle(false)} >
         <Toast.Header>
           <strong className="mr-auto">Your Order Is In The Basket</strong>
             <small>now</small>

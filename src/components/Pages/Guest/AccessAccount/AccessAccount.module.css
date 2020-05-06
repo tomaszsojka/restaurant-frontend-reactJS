@@ -33,7 +33,7 @@
 
 .selectedController {
     transition: border 0.5s ease-out;
-    border-bottom: 2px solid goldenrod;
+    border-bottom: 2px solid darkred;
 }
 
 .boxContainer {
@@ -62,7 +62,7 @@
     /* margin-right: 35px; */
     font-family: Ozxgen, sans-serif;
     font-size: 22px;
-    border-bottom: 2px solid goldenrod;
+    border-bottom: 2px solid darkred;
 }
 
 .box {
@@ -88,7 +88,7 @@
 .loginInput {
     height: 2.1em;
     border-radius: 3px;
-    border: 1px solid goldenrod;
+    border: 1px solid darkred;
     transition: border 0.4s ease-out;
     padding: 13px;
     font-family: Oxygen, sans-serif;
@@ -98,7 +98,7 @@
 }
 
 .loginInput:hover {
-    border: 2px solid goldenrod;
+    border: 2px solid darkred;
 }
 
 .loginInput:focus {
@@ -114,21 +114,21 @@
 
 .loginBtn {
     padding: 2px 30px;
-    /* background-color: goldenrod; */
+    /* background-color: darkred; */
     border: 0;
     font-size: 18px;
     border-radius: 3px;
     font-family: Oxygen, sans-serif;
     background-color: rgba(15, 15, 15, 0.03);
     margin-top: 20px;
-    border: 2px solid goldenrod;
+    border: 3px solid darkred;
     transition: background-color 0.3s ease-out;
     cursor: pointer;
 }
 
 .loginBtn:hover,
 .loginBtn:focus {
-    background-color: goldenrod;
+    background-color: darkred;
     color: white;
 }
 

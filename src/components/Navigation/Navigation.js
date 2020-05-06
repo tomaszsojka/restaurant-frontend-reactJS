@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import "./Toolbar/Toolbar";
 //import "./../index.css/../../index.css";
 import Toolbar from "./Toolbar/Toolbar";
@@ -28,7 +28,7 @@ export class Navigation extends React.Component {
         }
 
     return(
-            <div style={{height: '100%'}} >
+            <div style={{height: "100%"}} >
                 <Toolbar drawerClickHandler={this.drawerToggleClickHandler}/>
                 <SideDrawer show={this.state.sideDrawerOpen} />
                 {backDrop}

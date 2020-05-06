@@ -1,4 +1,4 @@
-.toggle-button{
+.toggleButton{
     display:flex;
     height:20px;
     width: 25px;
@@ -12,10 +12,10 @@
     box-sizing: border-box;
 }
 
-.toggle-button:focus{
+.toggleButton:focus{
 outline: none;
 }
-.toggle-button_line{
+.toggleButton_line{
     width:25px;
     height:2px;
     background: white;

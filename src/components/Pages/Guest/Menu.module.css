@@ -1,11 +1,4 @@
-.toast.show{
-    position: fixed;
-    left:20px;
-    bottom:20px;
-    z-index: 10;
-}
-
-.Menu_elements{
+.menuElements{
     position: center;
     margin: 0px 20%;
 }

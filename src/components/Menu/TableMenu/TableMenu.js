@@ -1,5 +1,5 @@
-import React from 'react';
-import {Table, Button} from 'react-bootstrap';
+import React from "react";
+import {Table, Button} from "react-bootstrap";
 
 
 
@@ -18,7 +18,7 @@ export function TableMenu({data,setOrdered}){
                     <td><Button
                     onClick={()=>setOrdered()}
                     className="mt-auto font-weight-bold"
-                    variant="success"
+                    variant="dark"
                     block>Order</Button></td>
                 </tr>)}
             </tbody>

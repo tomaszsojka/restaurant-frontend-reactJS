@@ -1,5 +1,5 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 import {Navigation} from "./components/Navigation/Navigation";
@@ -10,20 +10,18 @@ import {Contact} from "./components/Pages/Guest/Contact";
 import {PhotoGallery} from "./components/Pages/Guest/PhotoGallery";
 import "./components/Navigation/Toolbar/Toolbar"
 import {Error} from "./components/Pages/Error";
-import {OrderOnline} from "./components/Pages/Guest/OrderOnline";
-import {AccessAccount} from "./components/Pages/Guest/AccessAccount";
+import {AccessAccount} from "./components/Pages/Guest/AccessAccount/AccessAccount";
 export class App extends React.Component {
     render() {
     return (
         <Router >
-            <div style={{height: '100%'}}>
+            <div style={{height: "100%"}}>
                 <Navigation/>
                 <Switch>
                     <Route exact path={"/"} component={Home}/>
                     <Route path={"/menu"} component={Menu}/>
                     <Route path={"/contact"} component={Contact}/>
                     <Route path={"/gallery"} component={PhotoGallery}/>
-                    <Route path={"/order_online"} component={OrderOnline}/>
                     <Route path={"/access_account"} component={AccessAccount}/>
                     <Route component={Error}/>
                 </Switch>

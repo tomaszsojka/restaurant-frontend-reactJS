@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./PhotoGallery.module.css";
-import Gallery from 'react-grid-gallery';
+import Gallery from "react-grid-gallery";
 
 const IMAGES =
     [   {

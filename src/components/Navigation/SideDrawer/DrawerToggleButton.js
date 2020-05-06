@@ -1,12 +1,12 @@
-import React from 'react';
-import './DrawerToogleButton.css';
+import React from "react";
+import classes from "./DrawerToogleButton.module.css";
 
 
 const DrawerToggleButton = props => (
- <button className="toggle-button" onClick={props.click}>
-     <div className="toggle-button_line"/>
-     <div className="toggle-button_line"/>
-     <div className="toggle-button_line"/>
+ <button className={classes.toggleButton} onClick={props.click}>
+     <div className={classes.toggleButton_line}/>
+     <div className={classes.toggleButton_line}/>
+     <div className={classes.toggleButton_line}/>
  </button>
 
 );
