@@ -2,6 +2,7 @@
     postion: fixed;
     width: 100%;
     background: darkred;
+    border: solid 1px darkred;
     height: 60px;
     top: 0;
     left: 0;
@@ -11,7 +12,7 @@
 .toolbar_navigation{
     display: flex;
     height: 100%;
-    align_items: center;
+    align-items: center;
     padding: 0 1rem;
 }
 
@@ -51,4 +52,26 @@
 
 .spacer{
     flex: 1;
+}
+
+.acc_btn a{
+    color: darkred;
+    padding: 3% 0 ;
+    /* background-color: darkred; */
+    border: 0;
+    border-radius: 3px;
+    background-color: rgba(15, 15, 15, 0.03);
+    transition: background-color 0.3s ease-out;
+    cursor: pointer;
+}
+
+.acc_btn:hover,
+.acc_btn:focus {
+    background-color: darkred;
+    color: white;
+}
+
+.active_acc_btn{
+    background-color: darkred;
+    color: white;
 }
