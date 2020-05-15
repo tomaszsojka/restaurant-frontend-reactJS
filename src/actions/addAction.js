@@ -1,5 +1,4 @@
 import { ADD_PRODUCT_BASKET} from "./types";
-import products   from "../components/Menu/DataMenu/dataForMenu";
 
 export const addToBasket = (cartItems, product) => {
 

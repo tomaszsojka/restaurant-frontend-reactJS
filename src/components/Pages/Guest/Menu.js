@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import TableMenu from "../../Menu/TableMenu/TableMenu";
-import dataForMenu from "../../Menu/DataMenu/dataForMenu"
 import Confirmation from "./../../Menu/Confirmation/Confirmation"
 import breakfast_image from "./../../Menu/Images/breakfast.jpg"
 import dinner_image from "./../../Menu/Images/Diner.jpg"
@@ -35,9 +34,9 @@ export function Menu() {
                     <img src={breakfast_image} alt="breakfast_image"/>
                     <TableMenu data={data} nameOfMeal="breakfast" setOrdered={displayConfirmation}/>
                     <img src={dinner_image} alt="dinner_image"/>
-                    <TableMenu data={dataForMenu} nameOfMeal="dinner" setOrdered={displayConfirmation}/>
+                    <TableMenu data={data} nameOfMeal="dinner" setOrdered={displayConfirmation}/>
                     <img src={appetizer_image} alt="appetizers_image"/>
-                    <TableMenu data={dataForMenu} nameOfMeal="appetizers" setOrdered={displayConfirmation}/>
+                    <TableMenu data={data} nameOfMeal="appetizers" setOrdered={displayConfirmation}/>
                 </div>
             </div>
         </div>
