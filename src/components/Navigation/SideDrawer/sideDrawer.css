@@ -58,11 +58,12 @@
 }
 
 .product_header{
+    font-size: 20px;
     width:100%;
     display:flex;
     justify-content: flex-start;
     border-bottom: 4px solid lightgray;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 .product_title{
@@ -105,10 +106,15 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 10px 0;
+    padding: 5px 0;
+    border-bottom: 1px solid lightgray;
+}
+.deleteIcon{
+    width: 10%;
     border-bottom: 1px solid lightgray;
 }
 .product ion-icon{
+    float: left;
     cursor: pointer;
 }
 

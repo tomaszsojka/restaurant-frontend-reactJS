@@ -1,7 +1,6 @@
-import {ADD_PRODUCT_BASKET} from "../actions/types";
+import {ADD_PRODUCT_BASKET, QUANTITY_BASKET, REMOVE_PRODUCT_BASKET} from "../actions/types";
 import {GET_NUMBERS_BASKET} from "../actions/types";
 
-import {map} from "react-bootstrap/cjs/ElementChildren";
 
 const initialState = {
     shoppingCartNumber: 0,
@@ -14,18 +13,29 @@ export default (state = initialState, action) => {
 
         case ADD_PRODUCT_BASKET:
 
-           console.log(state);
             return{
                 ...state,
                 shoppingCartNumber: state.shoppingCartNumber + 1,
                 shoppingCartCost: state.shoppingCartCost,
                 listOfCurrentThings: action.payload.cartItems
-                }
-
+                };
+        case QUANTITY_BASKET:
+            console.log(state);
+            console.log(action.payload.value);
+            return {
+                ...state,
+                shoppingCartNumber: state.shoppingCartNumber + action.payload.value,
+                listOfCurrentThings: action.payload.cartItems
+            };
+        case REMOVE_PRODUCT_BASKET:
+            return{
+                    ...state,
+                    listOfCurrentThings: action.payload.cartItems
+                };
         case GET_NUMBERS_BASKET:
             return {
                 ...state
-            }
+            };
         default:
             return state;
     };
