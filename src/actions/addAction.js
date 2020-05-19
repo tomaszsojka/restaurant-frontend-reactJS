@@ -1,5 +1,8 @@
 import { ADD_PRODUCT_BASKET} from "./types";
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1435552edbf489d6160b73f48356a1641b503c2d
 
 export const addToBasket = (cartItems, product) => {
 
