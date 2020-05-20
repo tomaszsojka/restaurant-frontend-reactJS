@@ -12,7 +12,6 @@ export function Menu() {
 
     const [ordered, setOrdered] = useState(false);
 
-<<<<<<< HEAD
 const [data, loading] = useFetch(
     "/api/v1/dish"
 );
@@ -36,36 +35,8 @@ function displayConfirmation(){
                         <img src={appetizer_image} alt="appetizers_image" />
                         <TableMenu data={data} nameOfMeal = "appetizers" setOrdered={displayConfirmation}/>
                     </div>
-=======
-    const [data, loading] = useFetch(
-        "/api/v1/dish"
-    );
-
-    function displayConfirmation() {
-        setOrdered(true);
-
-        setTimeout(() => {
-            setOrdered(false);
-        }, 3000);
-    }
-
-
-
-    return (
-        <div className="container">
-            <div className="Menu">
-                {ordered && <Confirmation toggle={setOrdered}/>}
-                <div className={classes.menuElements}>
-                    <img src={breakfast_image} alt="breakfast_image"/>
-                    <TableMenu data={data} nameOfMeal="breakfast" setOrdered={displayConfirmation}/>
-                    <img src={dinner_image} alt="dinner_image"/>
-                    <TableMenu data={data} nameOfMeal="dinner" setOrdered={displayConfirmation}/>
-                    <img src={appetizer_image} alt="appetizers_image"/>
-                    <TableMenu data={data} nameOfMeal="appetizers" setOrdered={displayConfirmation}/>
->>>>>>> 1435552edbf489d6160b73f48356a1641b503c2d
                 </div>
             </div>
-        </div>
     );
 }
 
