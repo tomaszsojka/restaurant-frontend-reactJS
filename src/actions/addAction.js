@@ -2,13 +2,13 @@ import { ADD_PRODUCT_BASKET} from "./types";
 
 export const addToBasket = (cartItems, product) => {
 
-    let productAlreadyInCart = false;
-
+    let productAlreadyInCart = false
+    let costOfTheProduct = product.price;
     cartItems.forEach((meal) =>
     {
         if(meal.id === product.id) {
-            meal.count++
-            productAlreadyInCart = true
+            meal.count++;
+            productAlreadyInCart = true;
         }
     });
 
@@ -20,7 +20,7 @@ export const addToBasket = (cartItems, product) => {
 
         dispatch({
             type: ADD_PRODUCT_BASKET,
-            payload: {cartItems}
+            payload: {cartItems, costOfTheProduct}
         })
     }
 

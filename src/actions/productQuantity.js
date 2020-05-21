@@ -2,6 +2,7 @@ import { QUANTITY_BASKET} from "./types";
 
 export const productQuantity = (cartItems, product, increase) =>{
     let value
+    let costOfTheProduct = product.price;
     cartItems.forEach((meal) =>
     {
         if(meal.id === product.id) {
@@ -13,7 +14,7 @@ export const productQuantity = (cartItems, product, increase) =>{
                 value=-1;
                 meal.count--;
             }
-            }
+        }
     });
 
 
@@ -22,7 +23,7 @@ export const productQuantity = (cartItems, product, increase) =>{
 
         dispatch({
             type: QUANTITY_BASKET,
-            payload: {cartItems,value}
+            payload: {cartItems,value, costOfTheProduct}
         })
     }
 }

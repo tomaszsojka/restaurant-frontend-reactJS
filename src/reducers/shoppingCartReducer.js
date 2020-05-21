@@ -10,28 +10,34 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch(action.type) {
+        case "RESET":
+            return{
+                initialState
 
+            };
         case ADD_PRODUCT_BASKET:
 
             return{
-                ...state,
+                   ...state,
                 shoppingCartNumber: state.shoppingCartNumber + 1,
-                shoppingCartCost: state.shoppingCartCost,
-                listOfCurrentThings: action.payload.cartItems
-                };
+                shoppingCartCost: state.shoppingCartCost + action.payload.costOfTheProduct,
+                listOfCurrentThings:  action.payload.cartItems
+
+            };
         case QUANTITY_BASKET:
-            console.log(state);
-            console.log(action.payload.value);
             return {
                 ...state,
                 shoppingCartNumber: state.shoppingCartNumber + action.payload.value,
+                shoppingCartCost: state.shoppingCartCost + (action.payload.costOfTheProduct * action.payload.value),
                 listOfCurrentThings: action.payload.cartItems
             };
         case REMOVE_PRODUCT_BASKET:
             return{
-                    ...state,
-                    listOfCurrentThings: action.payload.cartItems
-                };
+                ...state,
+                shoppingCartNumber: state.shoppingCartNumber - action.payload.numberOfProducts,
+                shoppingCartCost: state.shoppingCartCost - action.payload.costOfTheProducts,
+                listOfCurrentThings: action.payload.cartItems
+            };
         case GET_NUMBERS_BASKET:
             return {
                 ...state
