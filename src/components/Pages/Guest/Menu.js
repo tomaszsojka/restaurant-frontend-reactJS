@@ -13,7 +13,7 @@ export function Menu() {
     const [ordered, setOrdered] = useState(false);
 
 const [data, loading] = useFetch(
-    "/api/v1/dish"
+    "/api/v1/guest/dish"
 );
 
 function displayConfirmation(){
