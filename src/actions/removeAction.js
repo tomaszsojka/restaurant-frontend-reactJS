@@ -3,12 +3,16 @@ import {REMOVE_PRODUCT_BASKET} from "./types";
 
 export const removeFromBasket = (cartItems, product) => {
 
-    let productAlreadyInCart = false;
+    let numberOfProducts;
     let i=0;
+    let costOfTheProducts;
     cartItems.forEach((meal) =>
     {
         if(meal.id === product.id) {
-            cartItems.splice(0,1);
+            numberOfProducts = meal.count;
+            costOfTheProducts = meal.count * meal.price;
+            cartItems.splice(i,1);
+
         }
         i++;
     });
@@ -17,7 +21,7 @@ export const removeFromBasket = (cartItems, product) => {
 
         dispatch({
             type: REMOVE_PRODUCT_BASKET,
-            payload: {cartItems}
+            payload: {cartItems, numberOfProducts, costOfTheProducts}
         })
     }
 
