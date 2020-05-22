@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./AccessAccount.module.css";
-
+import {sendHttpRequest} from "../../../../Fetch/useFetch"
 
 export class Register extends React.Component {
 //TODO if we have time password strength bar
@@ -59,14 +59,30 @@ export class Register extends React.Component {
     }
 
     submitRegister(e) {
+        let isEmpty = false;
         if(this.state.phoneNumber === "") {
             this.showValidationErr("phoneNumber", "Phone number cannot be empty");
+            isEmpty = true;
         }
         if(this.state.email === "") {
             this.showValidationErr("email", "Email address cannot be empty");
+            isEmpty = true;
         }
         if(this.state.password === "") {
             this.showValidationErr("password", "Password cannot be empty");
+            isEmpty = true;
+        }
+
+        if(isEmpty === false) {
+            //TODO check if its ok
+
+            sendHttpRequest('POST', '/api/v1/guest/client', this.state)
+                .then(responseData => {
+                    console.log(responseData);
+                })
+                .catch(err => {
+                    console.log(err, err.data);
+                });
         }
     }
 

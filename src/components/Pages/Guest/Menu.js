@@ -6,15 +6,24 @@ import dinner_image from "./../../Menu/Images/Diner.jpg"
 import appetizer_image from "./../../Menu/Images/appetizers.jpg"
 import classes from "./Menu.module.css"
 
-import { useFetch} from "../../Menu/Fetch/useFetch";
+import {sendHttpRequest} from "../../../Fetch/useFetch";
 
 export function Menu() {
-
     const [ordered, setOrdered] = useState(false);
+    const [data, setData] = useState([]);
 
-const [data, loading] = useFetch(
-    "/api/v1/guest/dish"
-);
+    //old version to get request
+    //const [data, setData] = useFetch(
+    //"/api/v1/guest/dish"
+    //);
+
+    useEffect(() => {
+        sendHttpRequest('GET', '/api/v1/guest/dish').then(responseData => {
+            setData(responseData);
+            console.log(responseData);
+        });
+    }, []);
+
 
 function displayConfirmation(){
     setOrdered(true);
