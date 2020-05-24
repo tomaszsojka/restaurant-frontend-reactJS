@@ -42,7 +42,7 @@ export class AccessAccount extends React.Component {
                     </div>
                     <div className={classes.boxContainer}>
                         {this.state.isLoginOpen && <Login/>}
-                        {this.state.isRegisterOpen && <Register/>}
+                        {this.state.isRegisterOpen && <Register showLogin={this.showLoginBox.bind(this)}/>}
 
                     </div>
                 </div>

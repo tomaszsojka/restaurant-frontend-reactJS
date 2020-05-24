@@ -59,21 +59,27 @@ export class Register extends React.Component {
     }
 
     submitRegister(e) {
-        let isEmpty = false;
+        let isError = false;
         if(this.state.phoneNumber === "") {
             this.showValidationErr("phoneNumber", "Phone number cannot be empty");
-            isEmpty = true;
+            isError = true;
+        }else if(this.state.phoneNumber.match(/^[0-9]{3}[ -]?[0-9]{3}[ -]?[0-9]{3}$/)==null) {
+            this.showValidationErr("phoneNumber", "Phone number is not valid")
+            isError = true;
         }
         if(this.state.email === "") {
             this.showValidationErr("email", "Email address cannot be empty");
-            isEmpty = true;
+            isError = true;
+        }else if(this.state.email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)==null) {
+            this.showValidationErr("email", "Email is not valid")
+            isError = true;
         }
         if(this.state.password === "") {
             this.showValidationErr("password", "Password cannot be empty");
-            isEmpty = true;
+            isError = true;
         }
 
-        if(isEmpty === false) {
+        if(isError === false) {
             //TODO check if its ok
 
             sendHttpRequest('POST', '/api/v1/guest/client', this.state)
@@ -83,6 +89,8 @@ export class Register extends React.Component {
                 .catch(err => {
                     console.log(err, err.data);
                 });
+
+            this.props.showLogin();
         }
     }
 
@@ -115,7 +123,8 @@ export class Register extends React.Component {
                                 type="tel"
                                 name="phone_number"
                                 className={classes.loginInput}
-                                /*pattern={"[0-9]{3}[ -]?[0-9]{2}[ -]?[0-9]{3}"}*/
+                                pattern={"[0-9]{3}[ -]?[0-9]{2}[ -]?[0-9]{3}"}
+                                required
                                 placeholder="Phone Number"
                                 onChange={this.onPhoneNumberChange.bind(this)}
                             />
