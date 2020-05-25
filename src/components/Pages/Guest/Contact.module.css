@@ -1,0 +1,39 @@
+.contactElements{
+    position: center;
+    margin: 0px 20%;
+}
+
+img{
+    height: 10%;
+    width:99%;
+
+    border-radius:5px ;
+}
+
+h1{
+    text-align: center;
+    font-size: xx-large;
+}
+
+h2{
+    text-align: left;
+    font-size: large;
+    font-weight: bold;
+}
+
+h3{
+    text-align: right;
+    font-size: large;
+    font-weight: bold;
+
+}
+
+h4{
+    text-align: left;
+    font-size: large;
+}
+
+h5{
+    text-align: right;
+    font-size: large;
+}
