@@ -5,7 +5,7 @@ export const Footer = (props) => {
     return(
         <div className={classes.out}>
             <div className={classes.in}>
-                <h7 > &copy; Restaurant web app</h7>
+                <h5> &copy; Restaurant web app</h5>
             </div>
         </div>
     );

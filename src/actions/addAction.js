@@ -7,13 +7,13 @@ export const addToBasket = (cartItems, product) => {
     cartItems.forEach((meal) =>
     {
         if(meal.id === product.id) {
-            meal.count++;
+            meal.quantity++;
             productAlreadyInCart = true;
         }
     });
 
     if(!productAlreadyInCart){
-        cartItems.push({...product,count:1});
+        cartItems.push({...product,quantity:1});
     }
 
     return(dispatch) => {

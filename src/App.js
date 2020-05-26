@@ -23,6 +23,7 @@ export class App extends React.Component {
                     <Route path={"/contact"} component={Contact}/>
                     <Route path={"/gallery"} component={PhotoGallery}/>
                     <Route path={"/access_account"} component={AccessAccount}/>
+
                     <Route component={Error}/>
                 </Switch>
                 <Footer/>

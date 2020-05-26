@@ -9,8 +9,8 @@ export const removeFromBasket = (cartItems, product) => {
     cartItems.forEach((meal) =>
     {
         if(meal.id === product.id) {
-            numberOfProducts = meal.count;
-            costOfTheProducts = meal.count * meal.price;
+            numberOfProducts = meal.quantity;
+            costOfTheProducts = meal.quantity * meal.price;
             cartItems.splice(i,1);
 
         }

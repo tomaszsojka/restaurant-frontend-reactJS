@@ -10,6 +10,7 @@
     z-index: 200;
     transform: translateX(+100%);
     transition: transform 0.3s;
+
 }
 
 .side-drawer ul{
@@ -47,6 +48,7 @@
     justify-content: space-around;
     margin: 0 auto;
     margin_top: 50px;
+
 }
 
 .container_products ion-icons{
@@ -58,18 +60,19 @@
 }
 
 .product_header{
-    font-size: 20px;
+    font-size: 18px;
     width:100%;
     display:flex;
     justify-content: flex-start;
     border-bottom: 4px solid lightgray;
     margin: 10px auto;
+    padding-top: 30px;
 }
 
 .product_title{
     text-align: center;
     align-items: center;
-    width: 45%;
+    width: 40%;
 }
 
 .header_price{
@@ -79,30 +82,30 @@
     width: 30%;
 }
 .header_total{
-    width: 10%;
+    width: 15%;
 }
 
 .product_price{
-    width: 15%;
+    width: 20%;
     border-bottom: 1px solid lightgray;
     display: flex;
     align-items: center;
 }
 
 .product_quantity{
-    width: 30%;
+    width: 25%;
     border-bottom: 1px solid lightgray;
     display: flex;
     align-items: center;
 }
 .product_total{
-    width: 10%;
+    width: 15%;
     border-bottom: 1px solid lightgray;
     display: flex;
     align-items: center;
 }
 .product{
-    width: 45%;
+    width: 40%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -110,8 +113,13 @@
     border-bottom: 1px solid lightgray;
 }
 .deleteIcon{
-    width: 10%;
-    border-bottom: 1px solid lightgray;
+    padding-left: 10%;
+    align-items: center;
+    width: 40%;
+}
+.productName{
+    width: 60%;
+
 }
 .product ion-icon{
     float: left;
@@ -136,6 +144,9 @@
 
 .basketTotal{
     width:10%;
+}
+.buttonToPay{
+    float:right;
 }
 
 @media(max-width: 500px){

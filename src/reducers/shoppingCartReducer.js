@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
 
             return{
                    ...state,
-                shoppingCartNumber: state.shoppingCartNumber + 1,
+               shoppingCartNumber: state.shoppingCartNumber + 1,
                 shoppingCartCost: state.shoppingCartCost + action.payload.costOfTheProduct,
                 listOfCurrentThings:  action.payload.cartItems
 
@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
         case QUANTITY_BASKET:
             return {
                 ...state,
-                shoppingCartNumber: state.shoppingCartNumber + action.payload.value,
+                shoppingCartNumber: state.shoppingCartNumber + (1  * action.payload.value),
                 shoppingCartCost: state.shoppingCartCost + (action.payload.costOfTheProduct * action.payload.value),
                 listOfCurrentThings: action.payload.cartItems
             };

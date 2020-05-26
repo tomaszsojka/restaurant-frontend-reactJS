@@ -7,12 +7,19 @@ export const productQuantity = (cartItems, product, increase) =>{
     {
         if(meal.id === product.id) {
             if(increase === "INCREASE") {
-                value = 1
-                meal.count++;
+                value = 1;
+                meal.quantity++;
+
             }
             else {
                 value=-1;
-                meal.count--;
+                if(meal.quantity !=0) {
+                    meal.quantity--;
+                }
+                else {
+                    costOfTheProduct = 0;
+                    value = 0;
+                }
             }
         }
     });
