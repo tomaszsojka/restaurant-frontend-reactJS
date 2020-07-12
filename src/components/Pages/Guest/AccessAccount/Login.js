@@ -1,5 +1,7 @@
 import React from "react";
 import classes from "./AccessAccount.module.css";
+import {sendHttpRequest} from "../../../../Fetch/useFetch";
+import {Redirect} from "react-router-dom";
 
 export class Login extends React.Component {
 
@@ -52,11 +54,23 @@ export class Login extends React.Component {
 
 
     submitLogin(e) {
+        let isError = false;
         if(this.state.email === "") {
             this.showValidationErr("email", "Email address cannot be empty");
+            isError = true;
+        }else if(this.state.email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)==null) {
+            this.showValidationErr("email", "Email is not valid")
+            isError = true;
         }
         if(this.state.password === "") {
             this.showValidationErr("password", "Password cannot be empty");
+            isError = true;
+        }
+
+        if(isError === false) {
+           //TODO
+
+
         }
     }
 
