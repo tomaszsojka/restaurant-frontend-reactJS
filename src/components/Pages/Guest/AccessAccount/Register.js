@@ -82,15 +82,16 @@ export class Register extends React.Component {
         if(isError === false) {
             //TODO check if its ok
 
-            sendHttpRequest('POST', '/api/v1/guest/client', this.state)
+            sendHttpRequest('POST', '/api/v1/guest/register', this.state)
                 .then(responseData => {
                     console.log(responseData);
+
+                    this.props.showLogin();
                 })
                 .catch(err => {
+                    this.showValidationErr("email", " An account with the given email exists.");
                     console.log(err, err.data);
                 });
-
-            this.props.showLogin();
         }
     }
 
