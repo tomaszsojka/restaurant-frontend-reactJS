@@ -1,7 +1,7 @@
 import React from "react";
-import classes from "./User.module.css";
+import classes from "./Client.module.css";
 
-export class UserOrders extends React.Component {
+export class ClientOrders extends React.Component {
     render() {
         return (
             <div className="container">

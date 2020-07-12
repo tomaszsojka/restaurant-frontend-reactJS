@@ -12,9 +12,9 @@ import "./components/Navigation/Toolbar/Toolbar"
 import {Error} from "./components/Pages/Error";
 import {AccessAccount} from "./components/Pages/Guest/AccessAccount/AccessAccount";
 
-import {User} from "./components/Pages/User/User";
-import {UserAccountDetails} from "./components/Pages/User/UserAccountDetails";
-import {UserOrders} from "./components/Pages/User/UserOrders";
+import {Client} from "./components/Pages/Client/Client";
+import {ClientAccountDetails} from "./components/Pages/Client/ClientAccountDetails";
+import {ClientOrders} from "./components/Pages/Client/ClientOrders";
 
 export class App extends React.Component {
     render() {
@@ -28,9 +28,9 @@ export class App extends React.Component {
                     <Route path={"/contact"} component={Contact}/>
                     <Route path={"/gallery"} component={PhotoGallery}/>
                     <Route path={"/access_account"} component={AccessAccount}/>
-                    <Route path={"/user"} component={User}/>
-                    <Route path={"/user_details"} component={UserAccountDetails}/>
-                    <Route path={"/user_orders"} component={UserOrders}/>
+                    <Route path={"/client"} component={Client}/>
+                    <Route path={"/client_details"} component={ClientAccountDetails}/>
+                    <Route path={"/client_orders"} component={ClientOrders}/>
                     <Route component={Error}/>
                 </Switch>
                 <Footer/>

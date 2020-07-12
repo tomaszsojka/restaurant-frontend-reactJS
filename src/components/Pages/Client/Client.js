@@ -1,9 +1,9 @@
 import React from "react";
-import classes from "./User.module.css";
+import classes from "./Client.module.css";
 import {Button, Table} from "react-bootstrap";
 import {Link} from 'react-router-dom'
 
-export class User extends React.Component {
+export class Client extends React.Component {
     render() {
         return (
             <div className="container">
@@ -13,7 +13,7 @@ export class User extends React.Component {
                             <tbody>
                             <tr>
                                 <td>
-                                    <Link to={"/user_details"}>
+                                    <Link to={"/client_details"}>
                                         <Button
                                             className="mt-auto font-weight-bold"
                                             variant="dark"
@@ -25,7 +25,7 @@ export class User extends React.Component {
                             </tr>
                             <tr>
                                 <td>
-                                    <Link to={"/user_orders"}>
+                                    <Link to={"/client_orders"}>
                                         <Button
                                             className="mt-auto font-weight-bold"
                                             variant="dark"

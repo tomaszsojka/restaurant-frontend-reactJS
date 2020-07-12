@@ -1,7 +1,7 @@
 import React from "react";
-import classes from "./User.module.css";
+import classes from "./Client.module.css";
 
-export class UserAccountDetails extends React.Component {
+export class ClientAccountDetails extends React.Component {
     render() {
         return (
             <div className="container">
