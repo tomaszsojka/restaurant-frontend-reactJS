@@ -1,8 +1,8 @@
 import React from "react";
-import classes from "./AccessAccount.module.css";
-import {sendHttpRequest} from "../../../../Fetch/useFetch"
+import classes from "./Forms.module.css"
+import {sendHttpRequest} from "../../Fetch/useFetch"
 
-export class Register extends React.Component {
+export class AddAccountForm extends React.Component {
 //TODO if we have time password strength bar
     constructor(props) {
         super(props);
@@ -19,7 +19,7 @@ export class Register extends React.Component {
                 errors: [
                     ...prevState.errors,
                     {elm, msg}
-                    ]
+                ]
             })
         );
     }
@@ -58,7 +58,7 @@ export class Register extends React.Component {
 
     }
 
-    submitRegister(e) {
+    submitAddAccount(e) {
         let isError = false;
         if(this.state.phoneNumber === "") {
             this.showValidationErr("phoneNumber", "Phone number cannot be empty");
@@ -112,55 +112,55 @@ export class Register extends React.Component {
         }
 
         return (
-                <div className={classes.innerContainer}>
-                    <div className={classes.header}>
-                        Register
-                    </div>
-                    <div className={classes.box}>
-
-                        <div className={classes.inputGroup}>
-                            <label htmlFor="phone_number">Phone Number</label>
-                            <input
-                                type="tel"
-                                name="phone_number"
-                                className={classes.loginInput}
-                                pattern={"[0-9]{3}[ -]?[0-9]{2}[ -]?[0-9]{3}"}
-                                required
-                                placeholder="Phone Number"
-                                onChange={this.onPhoneNumberChange.bind(this)}
-                            />
-                            <small className={classes.passingError}>{ phoneNumberErr ? phoneNumberErr : "" }</small>
-                        </div>
-
-                        <div className={classes.inputGroup}>
-                            <label htmlFor="email">Email</label>
-                            <input
-                                type="email"
-                                name="email"
-                                className={classes.loginInput}
-                                placeholder="Email"
-                                onChange={this.onEmailChange.bind(this)}
-                            />
-                            <small className={classes.passingError}>{ emailErr ? emailErr : "" }</small>
-                        </div>
-
-                        <div className={classes.inputGroup}>
-                            <label htmlFor="password">Password</label>
-                            <input
-                                type="password"
-                                name="password"
-                                className={classes.loginInput}
-                                placeholder="Password"
-                                onChange={this.onPasswordChange.bind(this)}
-                            />
-                            <small className={classes.passingError}>{ passwordErr ? passwordErr : "" }</small>
-                        </div>
-                        <button
-                            type="button"
-                            className={classes.loginBtn}
-                            onClick={this.submitRegister.bind(this)}>Register</button>
-                    </div>
+            <div className={classes.innerContainer}>
+                <div className={classes.header}>
+                    {this.props.title}
                 </div>
+                <div className={classes.box}>
+
+                    <div className={classes.inputGroup}>
+                        <label htmlFor="phone_number">Phone Number</label>
+                        <input
+                            type="tel"
+                            name="phone_number"
+                            className={classes.loginInput}
+                            pattern={"[0-9]{3}[ -]?[0-9]{2}[ -]?[0-9]{3}"}
+                            required
+                            placeholder="Phone Number"
+                            onChange={this.onPhoneNumberChange.bind(this)}
+                        />
+                        <small className={classes.passingError}>{ phoneNumberErr ? phoneNumberErr : "" }</small>
+                    </div>
+
+                    <div className={classes.inputGroup}>
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="email"
+                            name="email"
+                            className={classes.loginInput}
+                            placeholder="Email"
+                            onChange={this.onEmailChange.bind(this)}
+                        />
+                        <small className={classes.passingError}>{ emailErr ? emailErr : "" }</small>
+                    </div>
+
+                    <div className={classes.inputGroup}>
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            name="password"
+                            className={classes.loginInput}
+                            placeholder="Password"
+                            onChange={this.onPasswordChange.bind(this)}
+                        />
+                        <small className={classes.passingError}>{ passwordErr ? passwordErr : "" }</small>
+                    </div>
+                    <button
+                        type="button"
+                        className={classes.loginBtn}
+                        onClick={this.submitAddAccount.bind(this)}>{this.props.title}</button>
+                </div>
+            </div>
         );
     }
 }

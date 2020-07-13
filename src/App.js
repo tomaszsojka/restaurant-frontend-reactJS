@@ -10,7 +10,7 @@ import {Contact} from "./components/Pages/Guest/Contact";
 import {PhotoGallery} from "./components/Pages/Guest/PhotoGallery";
 import "./components/Navigation/Toolbar/Toolbar"
 import {Error} from "./components/Pages/Error";
-import {AccessAccount} from "./components/Pages/Guest/AccessAccount/AccessAccount";
+import {AccessAccount} from "./components/Pages/Guest/AccessAccount";
 
 import {UserAccountDetails} from "./components/Pages/UserAccountDetails";
 
@@ -20,6 +20,7 @@ import {ClientOrders} from "./components/Pages/Client/ClientOrders";
 import {Admin} from "./components/Pages/Admin/Admin";
 import {AdminManageDishes} from "./components/Pages/Admin/AdminManageDishes";
 import {AdminManageEmployees} from "./components/Pages/Admin/AdminManageEmployees";
+import {AdminAddEmployeeForm} from "./components/Forms/Admin/AdminAddEmployeeForm";
 
 export class App extends React.Component {
     render() {
@@ -40,6 +41,7 @@ export class App extends React.Component {
                     <Route path={"/admin"} component={Admin}/>
                     <Route path={"/admin_dishes"} component={AdminManageDishes}/>
                     <Route path={"/admin_employees"} component={AdminManageEmployees}/>
+                    <Route path={"/admin_add_employee"} component={AdminAddEmployeeForm}/>
                     <Route component={Error}/>
                 </Switch>
                 <Footer/>

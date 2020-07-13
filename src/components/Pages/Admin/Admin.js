@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import auth from "../../../Auth";
 import {Redirect} from "react-router-dom";
 
-import classes from "./Adminn.module.css"
+import classes from "./AdminPages.module.css"
 
 export class Admin extends React.Component {
 

@@ -1,8 +1,8 @@
 import React from "react";
-import classes from "./AccessAccount.module.css";
-import {sendHttpRequest} from "../../../../Fetch/useFetch";
+import classes from "../Forms.module.css";
+import {sendHttpRequest} from "../../../Fetch/useFetch";
 
-import auth from "../../../../Auth"
+import auth from "../../../Auth"
 import {Redirect} from "react-router-dom";
 
 export class Login extends React.Component {

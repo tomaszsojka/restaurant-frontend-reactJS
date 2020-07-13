@@ -1,8 +1,8 @@
 import React from "react";
 
-import classes from "./AccessAccount.module.css";
-import {Login} from "./Login";
-import {Register} from "./Register";
+import classes from "../../Forms/Forms.module.css";
+import {Login} from "../../Forms/AccessAccount/Login";
+import {AddAccountForm} from "../../Forms/AddAccountForm";
 
 export class AccessAccount extends React.Component {
 
@@ -42,7 +42,7 @@ export class AccessAccount extends React.Component {
                     </div>
                     <div className={classes.boxContainer}>
                         {this.state.isLoginOpen && <Login/>}
-                        {this.state.isRegisterOpen && <Register showLogin={this.showLoginBox.bind(this)}/>}
+                        {this.state.isRegisterOpen && <AddAccountForm title="Register" showLogin={this.showLoginBox.bind(this)}/>}
 
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./Client.module.css";
+import classes from "./ClientPages.module.css";
 import {Button, Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import auth from "../../../Auth";

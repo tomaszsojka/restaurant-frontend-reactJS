@@ -1,0 +1,11 @@
+.listElements{
+    position: center;
+    margin: 0px 20%;
+}
+
+img{
+    height: 10%;
+    width:99%;
+
+    border-radius:5px ;
+}

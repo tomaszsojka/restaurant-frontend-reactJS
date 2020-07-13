@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./Client.module.css";
+import classes from "./ClientPages.module.css";
 
 export class ClientOrders extends React.Component {
     render() {

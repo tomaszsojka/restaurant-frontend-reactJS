@@ -34,16 +34,14 @@ function displayConfirmation(){
 }
         return (
             <div className="container">
-                <div className="Menu">
-                    {ordered && <Confirmation toggle={setOrdered}/>}
-                    <div className={classes.menuElements}>
-                        <img src={breakfast_image} alt="breakfast_image" />
-                        <TableMenu data={data} nameOfMeal = "breakfast" setOrdered={displayConfirmation}/>
-                        <img src={dinner_image} alt="dinner_image" />
-                        <TableMenu data={data} nameOfMeal = "dinner" setOrdered={displayConfirmation}/>
-                        <img src={appetizer_image} alt="appetizers_image" />
-                        <TableMenu data={data} nameOfMeal = "appetizers" setOrdered={displayConfirmation}/>
-                    </div>
+                {ordered && <Confirmation toggle={setOrdered}/>}
+                <div className={classes.menuElements}>
+                    <img src={breakfast_image} alt="breakfast_image" />
+                    <TableMenu data={data} nameOfMeal = "breakfast" setOrdered={displayConfirmation}/>
+                    <img src={dinner_image} alt="dinner_image" />
+                    <TableMenu data={data} nameOfMeal = "dinner" setOrdered={displayConfirmation}/>
+                    <img src={appetizer_image} alt="appetizers_image" />
+                    <TableMenu data={data} nameOfMeal = "appetizers" setOrdered={displayConfirmation}/>
                 </div>
             </div>
     );
