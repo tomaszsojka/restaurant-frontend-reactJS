@@ -1,16 +1,20 @@
 import React from "react";
 import classes from "./AccessAccount.module.css";
 import {sendHttpRequest} from "../../../../Fetch/useFetch";
+
+import auth from "../../../../Auth"
 import {Redirect} from "react-router-dom";
 
 export class Login extends React.Component {
 
     constructor(props) {
         super(props);
+        let role = auth.getRole();
         this.state = {
             email : "",
             password: "",
-            errors: []
+            errors: [],
+            role: role
         };
     }
 
@@ -69,7 +73,16 @@ export class Login extends React.Component {
 
         if(isError === false) {
            //TODO
-
+            sendHttpRequest('POST', '/api/v1/guest/login', this.state)
+                .then(responseData => {
+                    console.log(responseData.role);
+                    auth.login(responseData.role, responseData.email);
+                    this.setState({role: responseData.role })
+                })
+                .catch(err => {
+                    this.showValidationErr("email", " Invalid email or password.");
+                    console.log(err, err);
+                });
 
         }
     }
@@ -77,6 +90,7 @@ export class Login extends React.Component {
     render() {
 
         let emailErr = null, passwordErr = null;
+        let role = this.state.role;
 
         for(let err of this.state.errors) {
             if(err.elm === "email") {
@@ -86,6 +100,14 @@ export class Login extends React.Component {
                 passwordErr = err.msg;
             }
         }
+        if (role === 'C')
+            return <Redirect to='/client'/>;
+        if (role === 'H')
+            return <Redirect to='/chef'/>;
+        if (role === 'W')
+            return <Redirect to='/waiter'/>;
+        if (role === 'A')
+            return <Redirect to='/admin'/>;
 
         return (
                 <div className={classes.innerContainer}>
