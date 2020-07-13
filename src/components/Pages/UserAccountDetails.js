@@ -1,15 +1,14 @@
 import React from "react";
-import classes from "./Client.module.css";
+//TODO v
+//import classes from "./";
 
-export class ClientAccountDetails extends React.Component {
+export class UserAccountDetails extends React.Component {
     render() {
         return (
             <div className="container">
-               <h1>details</h1>
+                <h1>details</h1>
             </div>
         );
     }
 }
-
-
 

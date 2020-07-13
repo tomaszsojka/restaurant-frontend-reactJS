@@ -12,9 +12,14 @@ import "./components/Navigation/Toolbar/Toolbar"
 import {Error} from "./components/Pages/Error";
 import {AccessAccount} from "./components/Pages/Guest/AccessAccount/AccessAccount";
 
+import {UserAccountDetails} from "./components/Pages/UserAccountDetails";
+
 import {Client} from "./components/Pages/Client/Client";
-import {ClientAccountDetails} from "./components/Pages/Client/ClientAccountDetails";
 import {ClientOrders} from "./components/Pages/Client/ClientOrders";
+
+import {Admin} from "./components/Pages/Admin/Admin";
+import {AdminManageDishes} from "./components/Pages/Admin/AdminManageDishes";
+import {AdminManageEmployees} from "./components/Pages/Admin/AdminManageEmployees";
 
 export class App extends React.Component {
     render() {
@@ -28,9 +33,13 @@ export class App extends React.Component {
                     <Route path={"/contact"} component={Contact}/>
                     <Route path={"/gallery"} component={PhotoGallery}/>
                     <Route path={"/access_account"} component={AccessAccount}/>
+
+                    <Route path={"/user_details"} component={UserAccountDetails}/>
                     <Route path={"/client"} component={Client}/>
-                    <Route path={"/client_details"} component={ClientAccountDetails}/>
                     <Route path={"/client_orders"} component={ClientOrders}/>
+                    <Route path={"/admin"} component={Admin}/>
+                    <Route path={"/admin_dishes"} component={AdminManageDishes}/>
+                    <Route path={"/admin_employees"} component={AdminManageEmployees}/>
                     <Route component={Error}/>
                 </Switch>
                 <Footer/>

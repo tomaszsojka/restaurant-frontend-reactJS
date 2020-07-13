@@ -1,11 +1,11 @@
 import React from "react";
-import classes from "./Client.module.css";
+import classes from "./Admin.module.css";
 import {Button, Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import auth from "../../../Auth";
 import {Redirect} from "react-router-dom";
 
-export class Client extends React.Component {
+export class Admin extends React.Component {
 
     constructor(props) {
         super(props);
@@ -27,8 +27,6 @@ export class Client extends React.Component {
             return <Redirect to='/'/>
         }
 
-
-
         return (
             <div className="container">
                 <div>
@@ -38,6 +36,7 @@ export class Client extends React.Component {
                             <tr>
                                 <td>
                                     <Link to={"/user_details"}>
+                                        {/* TODO */}
                                         <Button
                                             className="mt-auto font-weight-bold"
                                             variant="dark"
@@ -49,25 +48,37 @@ export class Client extends React.Component {
                             </tr>
                             <tr>
                                 <td>
-                                    <Link to={"/client_orders"}>
+                                    <Link to={"/admin_dishes"}>
                                         <Button
                                             className="mt-auto font-weight-bold"
                                             variant="dark"
                                             block>
-                                            My Orders
+                                            Manage dishes
                                         </Button>
                                     </Link>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
+                                    <Link to={"/admin_employees"}>
                                         <Button
                                             className="mt-auto font-weight-bold"
                                             variant="dark"
-                                            onClick={this.doLogout.bind(this)}
                                             block>
-                                            Logout
+                                            Manage employees
                                         </Button>
+                                    </Link>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <Button
+                                        className="mt-auto font-weight-bold"
+                                        variant="dark"
+                                        onClick={this.doLogout.bind(this)}
+                                        block>
+                                        Logout
+                                    </Button>
                                 </td>
                             </tr>
                             </tbody>
