@@ -1,5 +1,4 @@
 import React from "react";
-import classes from "./Admin.module.css";
 
 export class AdminManageDishes extends React.Component {
     render() {

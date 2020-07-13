@@ -33,7 +33,7 @@ export class App extends React.Component {
                     <Route path={"/contact"} component={Contact}/>
                     <Route path={"/gallery"} component={PhotoGallery}/>
                     <Route path={"/access_account"} component={AccessAccount}/>
-
+                    {/*TODO make below routes private*/}
                     <Route path={"/user_details"} component={UserAccountDetails}/>
                     <Route path={"/client"} component={Client}/>
                     <Route path={"/client_orders"} component={ClientOrders}/>
