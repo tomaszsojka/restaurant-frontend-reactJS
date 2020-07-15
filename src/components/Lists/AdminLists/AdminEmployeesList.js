@@ -10,7 +10,7 @@ export const AdminEmployeesList = (props)  =>{
                 </thead>
                 <tbody>
                 {props.data.filter(employee  =>
-                    employee.type === props.typeOfEmployee).map(employee =>
+                    employee.role === props.roleOfEmployee).map(employee =>
                     <tr key={employee.id}>
                         <td>{employee.email}</td>
                         <td>{employee.phoneNumber}</td>

@@ -82,11 +82,24 @@ export class AddAccountForm extends React.Component {
         if(isError === false) {
             //TODO check if its ok
 
-            sendHttpRequest('POST', '/api/v1/guest/register', this.state)
+            var userRole = this.props.userRole;
+            var path;
+            if(userRole === "client") {
+                path = '/api/v1/guest/register';
+            }else if(userRole === "chef") {
+                path = '/api/v1/admin/add_chef';
+            }else if(userRole === "waiter") {
+                path = '/api/v1/admin/add_waiter';
+            }
+
+                sendHttpRequest('POST', path, this.state)
                 .then(responseData => {
                     console.log(responseData);
-
-                    this.props.showLogin();
+                    //if showLogin function is not passed as a prop variable is null
+                    var showLogin = this.props.showLogin || null;
+                    if(showLogin) {
+                        this.props.showLogin();
+                    }
                 })
                 .catch(err => {
                     this.showValidationErr("email", " An account with the given email exists.");

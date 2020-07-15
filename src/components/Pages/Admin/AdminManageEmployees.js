@@ -32,8 +32,13 @@ export function AdminManageEmployees() {
                 <div className={classes.listElements}>
                     <br/>
                     <h1>CHEFS</h1>
-                    <AdminEmployeesList data={data} typeOfEmployee = "chef" />
-                    <Link to={"/admin_add_employee"}>
+                    <AdminEmployeesList data={data} roleOfEmployee = "chef" />
+                    <Link to={{
+                        pathname : "/admin_add_employee",
+                        state : {
+                            role : "chef"
+                        }
+                    }}>
                         <Button
                             className="mt-auto font-weight-bold"
                             variant="dark"
@@ -43,8 +48,13 @@ export function AdminManageEmployees() {
                     </Link>
                     <br/>
                     <h1>WAITERS</h1>
-                    <AdminEmployeesList data={data} typeOfEmployee = "waiter" />
-                    <Link to={"/admin_add_employee"}>
+                    <AdminEmployeesList data={data} roleOfEmployee = "waiter" />
+                    <Link to={{
+                        pathname : "/admin_add_employee",
+                        state: {
+                            role: "waiter"
+                        }
+                    }}>
                         <Button
                             className="mt-auto font-weight-bold"
                             variant="dark"
