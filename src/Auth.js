@@ -1,10 +1,11 @@
 class Auth {
 
-    login(role, email) {
+    login(role, email, phoneNumber) {
         //const email = this.parseJwt(token);
         //window.sessionStorage.setItem('token', token);
         window.sessionStorage.setItem('role', role);
         window.sessionStorage.setItem('email', email);
+        window.sessionStorage.setItem('phoneNumber', phoneNumber);
         window.sessionStorage.setItem('auth', 'true');
     }
 
@@ -16,6 +17,7 @@ class Auth {
         //window.sessionStorage.removeItem('token');
         window.sessionStorage.removeItem('role');
         window.sessionStorage.removeItem('email');
+        window.sessionStorage.removeItem('phoneNumber');
         window.sessionStorage.removeItem('auth');
     }
 
@@ -25,6 +27,9 @@ class Auth {
 
     getRole() {
         return window.sessionStorage.getItem('role');
+    }
+    getEmail() {
+        return window.sessionStorage.getItem('email');
     }
 
     // getToken() {

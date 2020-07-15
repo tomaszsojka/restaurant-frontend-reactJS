@@ -38,7 +38,7 @@ export class AdminAddEmployee extends React.Component {
                 <div className={classes.mainContainer}>
                     <hr/>
                     <div className={classes.boxContainer}>
-                        <AddAccountForm title="Add Employee" userRole={roleName} submitRedirect={this.redirectToEmployeesList.bind(this)}/>
+                        <AddAccountForm title={"Add "+ roleName} userRole={roleName} submitRedirect={this.redirectToEmployeesList.bind(this)}/>
                     </div>
                 </div>
             </div>

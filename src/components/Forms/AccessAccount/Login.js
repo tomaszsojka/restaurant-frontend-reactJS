@@ -13,6 +13,7 @@ export class Login extends React.Component {
         this.state = {
             email : "",
             password: "",
+            phoneNumber: "",
             errors: [],
             role: role
         };
@@ -72,11 +73,11 @@ export class Login extends React.Component {
         }
 
         if(isError === false) {
-           //TODO
+           //TODO phone number is not visible
             sendHttpRequest('POST', '/api/v1/guest/login', this.state)
                 .then(responseData => {
-                    console.log(responseData.role);
-                    auth.login(responseData.role, responseData.email);
+                    console.log(responseData);
+                    auth.login(responseData.role, responseData.email, responseData.phoneNumber);
                     this.setState({role: responseData.role })
                 })
                 .catch(err => {

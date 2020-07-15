@@ -50,6 +50,18 @@ export class Client extends React.Component {
                                 </tr>
                                 <tr>
                                     <td>
+                                        <Link to={"/client"}>
+                                            <Button
+                                                className="mt-auto font-weight-bold"
+                                                variant="dark"
+                                                block>
+                                                Order
+                                            </Button>
+                                        </Link>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
                                         <Link to={"/client_orders"}>
                                             <Button
                                                 className="mt-auto font-weight-bold"
