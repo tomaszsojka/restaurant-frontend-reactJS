@@ -2,6 +2,9 @@ import React from "react";
 import classes from "./Forms.module.css"
 import {sendHttpRequest} from "../../Fetch/useFetch"
 
+/**
+ * class for register and adding accounts by admin
+ */
 export class AddAccountForm extends React.Component {
 //TODO if we have time password strength bar
     constructor(props) {
@@ -95,16 +98,16 @@ export class AddAccountForm extends React.Component {
                 sendHttpRequest('POST', path, this.state)
                 .then(responseData => {
                     console.log(responseData);
-                    //if showLogin function is not passed as a prop variable is null
-                    var showLogin = this.props.showLogin || null;
-                    if(showLogin) {
-                        this.props.showLogin();
+                    //if redirecting function is not passed as a prop variable is null
+                    let submitRedirect = this.props.submitRedirect || null;
+                    if(submitRedirect) {
+                        this.props.submitRedirect();
                     }
                 })
-                .catch(err => {
-                    this.showValidationErr("email", " An account with the given email exists.");
-                    console.log(err, err.data);
-                });
+                    .catch(err => {
+                        this.showValidationErr("email", " An account with the given email exists.");
+                        console.log(err, err.data);
+                    });
         }
     }
 

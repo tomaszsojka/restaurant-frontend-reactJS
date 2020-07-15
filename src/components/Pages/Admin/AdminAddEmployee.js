@@ -21,7 +21,7 @@ export class AdminAddEmployee extends React.Component {
 
     }
 
-    redirectToEmployeeList() {
+    redirectToEmployeesList() {
         this.setState({isRedirect : true});
     }
 
@@ -38,7 +38,7 @@ export class AdminAddEmployee extends React.Component {
                 <div className={classes.mainContainer}>
                     <hr/>
                     <div className={classes.boxContainer}>
-                        <AddAccountForm title="Add Employee" userRole={roleName} showLogin={this.redirectToEmployeeList.bind(this)}/>
+                        <AddAccountForm title="Add Employee" userRole={roleName} submitRedirect={this.redirectToEmployeesList.bind(this)}/>
                     </div>
                 </div>
             </div>
