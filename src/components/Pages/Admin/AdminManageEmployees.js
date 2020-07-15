@@ -38,6 +38,7 @@ export function AdminManageEmployees() {
             setIsRedirect(true);
     }
     if(isRedirect) {
+        //TODO change to proper uri
         return <Redirect to="/"/>;
     }else {
         return (

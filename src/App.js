@@ -21,6 +21,7 @@ import {Admin} from "./components/Pages/Admin/Admin";
 import {AdminManageDishes} from "./components/Pages/Admin/AdminManageDishes";
 import {AdminManageEmployees} from "./components/Pages/Admin/AdminManageEmployees";
 import {AdminAddEmployee} from "./components/Pages/Admin/AdminAddEmployee";
+import {AdminAddDish} from "./components/Pages/Admin/AdminAddDish";
 
 export class App extends React.Component {
     render() {
@@ -42,6 +43,7 @@ export class App extends React.Component {
                     <Route path={"/admin_dishes"} component={AdminManageDishes}/>
                     <Route path={"/admin_employees"} component={AdminManageEmployees}/>
                     <Route path={"/admin_add_employee"} component={AdminAddEmployee}/>
+                    <Route path={"/admin_add_dish"} component={AdminAddDish}/>
                     <Route component={Error}/>
                 </Switch>
                 <Footer/>
