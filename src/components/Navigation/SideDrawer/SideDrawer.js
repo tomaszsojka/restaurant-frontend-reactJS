@@ -2,7 +2,9 @@ import React, {Fragment} from "react";
 import {connect} from "react-redux"
 import {productQuantity} from "../../../actions/productQuantity"
 import {removeFromBasket} from "../../../actions/removeAction"
+import {resetBasket} from "../../../actions/resetBasketAction";
 import './sideDrawer.css'
+import {addOrder} from "../../../actions/addOrderAction";
 import {sendHttpRequest} from "../../../Fetch/useFetch";
 
 const SideDrawer = props => {
@@ -13,6 +15,7 @@ const SideDrawer = props => {
 
    const submitCart = () => {
         console.log(props.shoppingCartProps);
+/*
       props.shoppingCartProps.listOfCurrentThings.forEach((order)=>
        {
            let variable = {...order,date:11,prepared:true,paid:false,mealID:order.id,userID:13};
@@ -24,6 +27,13 @@ const SideDrawer = props => {
                    console.log(err, err.data);
                });
        })
+*/
+
+        /////////////////ADDING TO CHEF ///////////
+
+            props.addOrder(props.orderProps.listOfOrders, {table: "table3", waiter: "www", customerid:"111", listOfCurrentThings:props.shoppingCartProps.listOfCurrentThings });
+        console.log(props.orderProps);
+          props.resetBasket()
 
     }
 
@@ -61,19 +71,30 @@ const SideDrawer = props => {
                 <div className="products">
                     {productsInCart}
                 </div>
+                <div>
+                   <label for ="table"> Which table would you like to order for? </label>
+                    <select id="table">
+                        <option value="table1">Table 1</option>
+                        <option value="table2">Table 2</option>
+                        <option value="table3">Table 3</option>
+                        <option value="table4">Table 4</option>
+                        <option value="table5">Table 5</option>
+                        <option value="table6">Table 6</option>
+                    </select>
+                </div>
                 <div className="basketTotalContainer">
                     <h4>Basket total:   </h4>
                     <h4>€{props.shoppingCartProps.shoppingCartCost},00</h4>
-
                 </div>
-                <button className="buttonToPay" onClick={() => submitCart()}>Pay for the order!</button>
+                <button className="buttonToPay" onClick={() => submitCart("table1")}>Pay for the order!</button>
             </div>
         </div>
     );
 }
 
 const mapStateToProps = state =>( {
-    shoppingCartProps: state.shoppingCartState
+    shoppingCartProps: state.shoppingCartState,
+    orderProps: state.orderState
 })
 
-export default connect(mapStateToProps,{productQuantity, removeFromBasket})(SideDrawer);
+export default connect(mapStateToProps,{productQuantity, removeFromBasket, resetBasket, addOrder})(SideDrawer);

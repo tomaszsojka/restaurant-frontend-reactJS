@@ -1,5 +1,4 @@
-import {ADD_PRODUCT_BASKET, QUANTITY_BASKET, REMOVE_PRODUCT_BASKET} from "../actions/types";
-import {GET_NUMBERS_BASKET} from "../actions/types";
+import {ADD_PRODUCT_BASKET, QUANTITY_BASKET, REMOVE_PRODUCT_BASKET, GET_NUMBERS_BASKET, RESET_BASKET} from "../actions/types";
 
 
 const initialState = {
@@ -10,10 +9,11 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch(action.type) {
-        case "RESET":
-            return{
-                initialState
-
+        case RESET_BASKET:
+            return {
+                shoppingCartNumber: 0,
+                shoppingCartCost: 0,
+                listOfCurrentThings: []
             };
         case ADD_PRODUCT_BASKET:
 

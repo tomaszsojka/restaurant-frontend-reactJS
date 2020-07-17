@@ -50,7 +50,7 @@ export class Chef extends React.Component {
                             </tr>
                             <tr>
                                 <td>
-                                    <Link to={"/all_orders"}>
+                                    <Link to={"/chef_orders"}>
                                         <Button
                                             className="mt-auto font-weight-bold"
                                             variant="dark"
