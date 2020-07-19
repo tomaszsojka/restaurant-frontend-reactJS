@@ -78,11 +78,11 @@ export function AdminManageDishes() {
                         </Link>
                         <br/>
                         <h1>APPETIZERS</h1>
-                        <AdminDishesList data={data} typeOfDish = "appetizers" deleteAndRedirect={deleteAndRedirect.bind(this)}/>
+                        <AdminDishesList data={data} typeOfDish = "appetizer" deleteAndRedirect={deleteAndRedirect.bind(this)}/>
                         <Link to={{
                             pathname : "/admin_add_dish",
                             state : {
-                                type : "appetizers"
+                                type : "appetizer"
                             }
                         }}>
                             <Button

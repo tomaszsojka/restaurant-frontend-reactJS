@@ -41,7 +41,7 @@ function displayConfirmation(){
                     <img src={dinner_image} alt="dinner_image" />
                     <TableMenu data={data} nameOfMeal = "dinner" setOrdered={displayConfirmation}/>
                     <img src={appetizer_image} alt="appetizers_image" />
-                    <TableMenu data={data} nameOfMeal = "appetizers" setOrdered={displayConfirmation}/>
+                    <TableMenu data={data} nameOfMeal = "appetizer" setOrdered={displayConfirmation}/>
                 </div>
             </div>
     );

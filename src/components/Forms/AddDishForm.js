@@ -6,14 +6,12 @@ import {sendHttpRequest} from "../../Fetch/useFetch"
  * class for adding dishes by admin
  */
 export class AddDishForm extends React.Component {
-//TODO if we have time password strength bar
     constructor(props) {
         super(props);
         this.state = {
             name : "",
             description: "",
             price: "",
-            type: "",
             errors: []
         };
     }
@@ -42,7 +40,7 @@ export class AddDishForm extends React.Component {
 
     onNameChange(e) {
         this.setState({
-            email: e.target.value
+            name: e.target.value
         });
         this.clearValidationErr("name");
 
@@ -50,24 +48,16 @@ export class AddDishForm extends React.Component {
 
     onDescriptionChange(e) {
         this.setState({
-            phoneNumber: e.target.value
+            description: e.target.value
         });
         this.clearValidationErr("description");
     }
 
     onPriceChange(e) {
         this.setState({
-            email: e.target.value
+            price: e.target.value
         });
         this.clearValidationErr("price");
-
-    }
-
-    onTypeChange(e) {
-        this.setState({
-            password: e.target.value
-        });
-        this.clearValidationErr("type");
 
     }
 
@@ -80,12 +70,8 @@ export class AddDishForm extends React.Component {
         if(this.state.price === "") {
             this.showValidationErr("price", "Price cannot be empty");
             isError = true;
-        }else if(this.state.email.match(/^[0-9]+$/)==null) {
+        }else if(this.state.price.match(/^[0-9]+$/)==null) {
             this.showValidationErr("price", "Price is not valid")
-            isError = true;
-        }
-        if(this.state.type === "") {
-            this.showValidationErr("type", "Type cannot be empty");
             isError = true;
         }
 
@@ -95,7 +81,7 @@ export class AddDishForm extends React.Component {
             var dishType = this.props.dishType;
             var path;
             if(dishType === "breakfast") {
-                path = '/api/v1/guest/add_breakfast';
+                path = '/api/v1/admin/add_breakfast';
             }else if(dishType === "dinner") {
                 path = '/api/v1/admin/add_dinner';
             }else if(dishType === "appetizer") {
@@ -125,9 +111,6 @@ export class AddDishForm extends React.Component {
         for(let err of this.state.errors) {
             if(err.elm === "name") {
                 nameErr = err.msg;
-            }
-            if(err.elm === "type") {
-                typeErr = err.msg;
             }
             if(err.elm === "price") {
                 priceErr = err.msg;
@@ -162,22 +145,9 @@ export class AddDishForm extends React.Component {
                             placeholder="Description (Optional)"
                             onChange={this.onDescriptionChange.bind(this)}
                         />
-                        <small className={classes.passingError}>{ typeErr ? typeErr : "" }</small>
-                    </div>
-
-                    <div className={classes.inputGroup}>
-                        <label htmlFor="type">Password</label>
-                        <input
-                            type="text"
-                            name="type"
-                            className={classes.loginInput}
-                            placeholder="Type"
-                            onChange={this.onTypeChange.bind(this)}
-                        />
-                        <small className={classes.passingError}>{ priceErr ? priceErr : "" }</small>
                     </div>
                     <div className={classes.inputGroup}>
-                        <label htmlFor="price">Password</label>
+                        <label htmlFor="price">Price</label>
                         <input
                             type="price"
                             name="price"

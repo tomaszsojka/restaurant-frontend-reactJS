@@ -22,25 +22,24 @@ export class AdminAddDish extends React.Component {
 
     }
 
-    redirectToEmployeesList() {
+    redirectToDishList() {
         this.setState({isRedirect : true});
     }
 
 
     render() {
-        let typeName = this.state.role;
+        let typeName = this.state.type;
         let isRedirect = this.state.isRedirect;
 
         if(isRedirect) {
-            return <Redirect to="/admin_employees"/>;
+            return <Redirect to="/admin_dishes"/>;
         }
         return (
             <div className="container">
                 <div className={classes.mainContainer}>
                     <hr/>
                     <div className={classes.boxContainer}>
-                        <h1>Here adding dish</h1>
-                        <AddDishForm title="Add Dish" dishType="breakfast"/>
+                        <AddDishForm title={"Add "+ typeName} dishType={typeName} submitRedirect={this.redirectToDishList.bind(this)} />
                     </div>
                 </div>
             </div>
