@@ -61,7 +61,7 @@ export function AdminManageDishes() {
                             </Button>
                         </Link>
                         <br/>
-                        <h1>DINERS</h1>
+                        <h1>DINNERS</h1>
                         <AdminDishesList data={data} typeOfDish = "dinner" deleteAndRedirect={deleteAndRedirect.bind(this)}/>
                         <Link to={{
                             pathname : "/admin_add_dish",
@@ -73,7 +73,7 @@ export function AdminManageDishes() {
                                 className="mt-auto font-weight-bold"
                                 variant="dark"
                                 block>
-                                Add Breakfast
+                                Add Dinner
                             </Button>
                         </Link>
                         <br/>
@@ -89,7 +89,7 @@ export function AdminManageDishes() {
                                 className="mt-auto font-weight-bold"
                                 variant="dark"
                                 block>
-                                Add Breakfast
+                                Add Appetizer
                             </Button>
                         </Link>
                         <br/>

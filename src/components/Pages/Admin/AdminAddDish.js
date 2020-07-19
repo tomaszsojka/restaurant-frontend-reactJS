@@ -1,6 +1,8 @@
 import React from "react";
 import classes from "../../Forms/Forms.module.css";
 import {Redirect} from "react-router-dom";
+import {AddDishForm} from "../../Forms/AddDishForm";
+import {AddAccountForm} from "../../Forms/AddAccountForm";
 
 export class AdminAddDish extends React.Component {
 
@@ -38,6 +40,7 @@ export class AdminAddDish extends React.Component {
                     <hr/>
                     <div className={classes.boxContainer}>
                         <h1>Here adding dish</h1>
+                        <AddDishForm title="Add Dish" dishType="breakfast"/>
                     </div>
                 </div>
             </div>
