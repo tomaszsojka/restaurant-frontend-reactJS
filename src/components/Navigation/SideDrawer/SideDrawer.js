@@ -8,7 +8,7 @@ import {addOrder} from "../../../actions/addOrderAction";
 import {sendHttpRequest} from "../../../Fetch/useFetch";
 import auth from "../../../Auth";
 import {onChange} from "../../../actions/onChange"
-import {Button} from "react-bootstrap";
+import {Button, Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import classes from "../../Forms/Forms.module.css";
 
@@ -36,8 +36,19 @@ const SideDrawer = props => {
                             placeholder = "Address"
                             value={props.formProps.form}
                             onChange={handleOnChange}
-                     /> </div>;
-                        case 'W' || 'A':
+                     />
+                                <div className="basketTotalContainer">
+                                    <h4>Basket total:   </h4>
+                                    <h4>€{props.shoppingCartProps.shoppingCartCost},00</h4>
+                                </div>
+                                <Button className="mt-auto font-weight-bold"
+                                        variant="dark"
+                                        block onClick={() => submitCart()}>Pay for the order!</Button>
+
+                            </div>;
+                        case 'W':
+                        case 'A':
+                            case 'H':
                             return  <div>
                                 <label>What table do you want to order?</label>
                                 <select value={props.formProps.form} onChange={handleOnChange} >
@@ -48,12 +59,21 @@ const SideDrawer = props => {
                                     <option value="Table 5">Table 5</option>
                                     <option value="Table 6">Table 6</option>
                                 </select>
+                                <div className="basketTotalContainer">
+                                    <h4>Basket total:   </h4>
+                                    <h4>€{props.shoppingCartProps.shoppingCartCost},00</h4>
+                                </div>
+                                <Button className="mt-auto font-weight-bold"
+                                        variant="dark"
+                                        block onClick={() => submitCart()}>Pay for the order!</Button>
                             </div>;
                         default:
                             return  <div>
                             <h1>You should log in, before taking an order!</h1>
                                 <Link to="/access_account">
-                                <Button>Proceed to log in</Button>
+                                <Button className="mt-auto font-weight-bold"
+                                        variant="dark"
+                                        block>Proceed to log in</Button>
                                 </Link>
                             </div>;
                     }
@@ -92,19 +112,18 @@ const SideDrawer = props => {
 
     productsInCart = props.shoppingCartProps.listOfCurrentThings.map((product) => {
         return (
-            <Fragment key={product.id}>
-                <div className="product">
-                    <div className="deleteIcon"><ion-icon onClick={()=>props.removeFromBasket(props.shoppingCartProps.listOfCurrentThings, product)} name="close-circle"></ion-icon></div>
-                    <div className="productName">{product.name}</div>
-                </div>
-                <div className="product_price">€{product.price},00</div>
-                <div className="product_quantity">
+
+                <tr key={product.id}>
+                    <td><ion-icon onClick={()=>props.removeFromBasket(props.shoppingCartProps.listOfCurrentThings, product)} name="close-circle"></ion-icon>
+                    {product.name}</td>
+               <td>€{product.price},00</td>
+                <td>
                     <ion-icon name="arrow-back-circle-outline" onClick={()=>props.productQuantity(props.shoppingCartProps.listOfCurrentThings,product,"DECREASE")}></ion-icon>
                     <span>{product.quantity}</span>
                     <ion-icon name="arrow-forward-circle-outline" onClick={()=>props.productQuantity(props.shoppingCartProps.listOfCurrentThings,product,"INCREASE")}></ion-icon>
-                </div>
-                <div className="product_total">€{product.quantity * product.price},00</div>
-            </Fragment>
+                </td>
+                <td>€{product.quantity * product.price},00</td>
+            </tr>
 
         );
     });
@@ -113,21 +132,23 @@ const SideDrawer = props => {
 
         <div className={drawerClasses}>
             <div className="container_products">
-                <div className="product_header">
-                    <div className="product_title">PRODUCT </div>
-                    <div className="header_price">PRICE </div>
-                    <div className="header_quantity">QUANTITY </div>
-                    <div className="header_total">TOTAL </div>
-                </div>
-                <div className="products">
+                <Table responsive  >
+                    <thead>
+
+                    <tr><th>PRODUCT </th>
+                        <th>PRICE </th>
+                        <th>QUANTITY </th>
+                        <th>TOTAL</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
                     {productsInCart}
-                </div>
+
+                    </tbody>
+                    </Table>
                 {Notfication(auth.getRole())};
-                <div className="basketTotalContainer">
-                    <h4>Basket total:   </h4>
-                    <h4>€{props.shoppingCartProps.shoppingCartCost},00</h4>
-                </div>
-                <button className="buttonToPay" onClick={() => submitCart()}>Pay for the order!</button>
+
 
             </div>
         </div>

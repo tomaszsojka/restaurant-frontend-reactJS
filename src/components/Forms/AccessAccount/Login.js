@@ -78,6 +78,11 @@ export class Login extends React.Component {
                 .then(responseData => {
                     console.log(responseData.phoneNumber);
                     var tmpRole = responseData.role[0].toUpperCase();
+                    if (tmpRole === 'C') {
+                        if(responseData.role[1] ==='h') {
+                            tmpRole = 'H';
+                        }
+                    }
                     console.log(tmpRole);
                     auth.login(tmpRole, responseData.email, responseData.phoneNumber);
                     this.setState({role: tmpRole })

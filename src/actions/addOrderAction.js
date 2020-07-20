@@ -2,6 +2,9 @@ import { ADD_ORDER} from "./types";
 
 export const addOrder = (listOfOrdersChef, neworder) => {
 
+    const timestamp = Date.now();
+    console.log(timestamp);
+    let variable = timestamp;
     let tableAlreadyinList = false;
     listOfOrdersChef.forEach((order) =>
     {
@@ -14,7 +17,7 @@ export const addOrder = (listOfOrdersChef, neworder) => {
     });
 
     if(!tableAlreadyinList){
-        listOfOrdersChef.push({...neworder});
+       listOfOrdersChef.push({...neworder, variable});
     }
 
     return(dispatch) => {

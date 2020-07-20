@@ -7,6 +7,9 @@ import {transferToWaiter} from "../../../actions/transferToWaiter";
 
 const ChefOrders = props =>
 {
+     // This would be the timestamp you want to format
+
+
         return (
             <div className="container">
                 <div className={classes.mainContainer}>
@@ -16,6 +19,7 @@ const ChefOrders = props =>
                         {props.orderPropsChef.listOfOrders.map((order) => { return(
                            <div>
                                <h1> {order.table} </h1>
+
                                            <Table responsive>
                                                <thead>
                                                <tr>
