@@ -76,7 +76,7 @@ export class Login extends React.Component {
            //TODO phone number is not visible
             sendHttpRequest('POST', '/api/v1/guest/login', this.state)
                 .then(responseData => {
-                    console.log(responseData);
+                    console.log(responseData.phoneNumber);
                     auth.login(responseData.role, responseData.email, responseData.phoneNumber);
                     this.setState({role: responseData.role })
                 })
