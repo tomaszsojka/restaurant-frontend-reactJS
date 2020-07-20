@@ -1,9 +1,9 @@
 import { ADD_ORDER} from "./types";
 
-export const addOrder = (listOfOrders, neworder) => {
+export const addOrder = (listOfOrdersChef, neworder) => {
 
     let tableAlreadyinList = false;
-    listOfOrders.forEach((order) =>
+    listOfOrdersChef.forEach((order) =>
     {
         if(order.table === neworder.table) {
             tableAlreadyinList = true;
@@ -14,17 +14,17 @@ export const addOrder = (listOfOrders, neworder) => {
     });
 
     if(!tableAlreadyinList){
-        listOfOrders.push({...neworder});
+        listOfOrdersChef.push({...neworder});
     }
 
     return(dispatch) => {
 
         dispatch({
             type: ADD_ORDER,
-            payload: {listOfOrders}
+            payload: {listOfOrdersChef}
         })
     }
 
-}
+};
 
 

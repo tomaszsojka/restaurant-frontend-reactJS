@@ -3,22 +3,26 @@ import classes from "../../Forms/Forms.module.css";
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import {Button, Table} from "react-bootstrap";
-
+import {finalizeTransaction} from "../../../actions/fInalizeTransaction"
+import auth from "../../../Auth";
 const WaiterOrders = props =>
 {
     var sum = 0
+
+
     return (
         <div className="container">
             <div className={classes.mainContainer}>
                 <hr/>
                 <div className={classes.boxContainer}>
                     <h1>Waiter panel</h1>
-
-                    {props.orderProps.filter(order => order.table === "table1").map((order) => { return(
+                    {console.log(props.orderPropsWaiter.listOfOrderWaiter)}
+                    {props.orderPropsWaiter.listOfOrders.filter(order => order.waiter === auth.getEmail()).map((order) => { return(
                             <div>
                                 {sum = 0}
                                 <h1> {order.table} </h1>
                                 <Table responsive>
+                                    <thead>
                                     <tr>
                                         <th>Name</th>
                                         <th>Quantity</th>
@@ -26,6 +30,8 @@ const WaiterOrders = props =>
                                         <th>Total</th>
 
                                     </tr>
+                                    </thead>
+                                    <tbody>
                                     {order.listOfCurrentThings.map((meal) => {
                                             return (
                                                 <tr>
@@ -39,12 +45,15 @@ const WaiterOrders = props =>
                                         }
                                     )
                                     }
+                                    </tbody>
                                 </Table>
                                 Total money for all of the products: € {sum}
-                                <Button  className="mt-auto font-weight-bold"
+                                <Button onClick={()=>props.finalizeTransaction(props.orderPropsWaiter.listOfOrders, order) }
+                                    className="mt-auto font-weight-bold"
                                          variant="dark"
                                          block>Done!</Button>
                                 <br />
+
                             </div>
                         )
                         }
@@ -54,10 +63,12 @@ const WaiterOrders = props =>
             </div>
         </div>
     );
+
 };
 
 const mapStateToProps =  state => ({
-    orderProps: state.orderState.listOfOrders
+    orderPropsWaiter: state.waiterOrderState,
+
 })
 
-export default connect(mapStateToProps)(WaiterOrders);
+export default connect(mapStateToProps, {finalizeTransaction})(WaiterOrders);

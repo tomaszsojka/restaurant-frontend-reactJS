@@ -1,22 +1,24 @@
-import {ADD_ORDER, RESET_ORDERS} from "../actions/types"
+import {ON_CHANGE_FORM, RESET_ORDERS} from "../actions/types"
 
 const initialState = {
-    listOfOrders: [],
-    
+    form: "Table 1"
+
 }
 
 export default (state = initialState, action) => {
+
     switch(action.type) {
+
         case RESET_ORDERS:
             return{
                 ...state,
-                listOfOrders: []
+                form: "Table 1"
             };
-        case ADD_ORDER:
-
+        case ON_CHANGE_FORM:
             return{
                 ...state,
-                listOfOrders: action.payload.listOfOrdersChef
+                form: action.payload.param
+
             };
 
         default:

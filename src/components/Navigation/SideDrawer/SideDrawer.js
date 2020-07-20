@@ -6,14 +6,25 @@ import {resetBasket} from "../../../actions/resetBasketAction";
 import './sideDrawer.css'
 import {addOrder} from "../../../actions/addOrderAction";
 import {sendHttpRequest} from "../../../Fetch/useFetch";
+import auth from "../../../Auth";
+import {onChange} from "../../../actions/onChange"
+
+
+
+
+
 
 const SideDrawer = props => {
     let drawerClasses = ['side-drawer'];
     if (props.show) {
         drawerClasses = ['side-drawer open'];
     }
+    const handleOnChange = (e) => {
+        props.onChange(e.target.value);
+    }
 
-   const submitCart = () => {
+
+    const submitCart = () => {
         console.log(props.shoppingCartProps);
 /*
       props.shoppingCartProps.listOfCurrentThings.forEach((order)=>
@@ -31,7 +42,7 @@ const SideDrawer = props => {
 
         /////////////////ADDING TO CHEF ///////////
 
-            props.addOrder(props.orderProps.listOfOrders, {table: "table3", waiter: "www", customerid:"111", listOfCurrentThings:props.shoppingCartProps.listOfCurrentThings });
+            props.addOrder(props.orderProps.listOfOrders, {table: props.formProps.form, waiter: auth.getEmail(), customerid: auth.getEmail(), listOfCurrentThings:props.shoppingCartProps.listOfCurrentThings });
         console.log(props.orderProps);
           props.resetBasket()
 
@@ -44,7 +55,7 @@ const SideDrawer = props => {
         return (
             <Fragment key={product.id}>
                 <div className="product">
-                    <div className="deleteIcon"><ion-icon onClick={()=>props.removeFromBasket(props.shoppingCartProps.listOfCurrentThings,product)} name="close-circle"></ion-icon></div>
+                    <div className="deleteIcon"><ion-icon onClick={()=>props.removeFromBasket(props.shoppingCartProps.listOfCurrentThings, product)} name="close-circle"></ion-icon></div>
                     <div className="productName">{product.name}</div>
                 </div>
                 <div className="product_price">€{product.price},00</div>
@@ -60,6 +71,7 @@ const SideDrawer = props => {
     });
 
     return (
+
         <div className={drawerClasses}>
             <div className="container_products">
                 <div className="product_header">
@@ -71,17 +83,15 @@ const SideDrawer = props => {
                 <div className="products">
                     {productsInCart}
                 </div>
-                <div>
-                   <label for ="table"> Which table would you like to order for? </label>
-                    <select id="table">
-                        <option value="table1">Table 1</option>
-                        <option value="table2">Table 2</option>
-                        <option value="table3">Table 3</option>
-                        <option value="table4">Table 4</option>
-                        <option value="table5">Table 5</option>
-                        <option value="table6">Table 6</option>
-                    </select>
-                </div>
+                {console.log(props.formProps.form)}
+                <select value={props.formProps.form} onChange={handleOnChange} >
+                    <option value="Table 1">Table 1</option>
+                    <option value="Table 2">Table 2</option>
+                    <option value="Table 3">Table 3</option>
+                    <option value="Table 4">Table 4</option>
+                    <option value="Table 5">Table 5</option>
+                    <option value="Table 6">Table 6</option>
+                </select>
                 <div className="basketTotalContainer">
                     <h4>Basket total:   </h4>
                     <h4>€{props.shoppingCartProps.shoppingCartCost},00</h4>
@@ -90,11 +100,13 @@ const SideDrawer = props => {
             </div>
         </div>
     );
-}
+};
+
 
 const mapStateToProps = state =>( {
     shoppingCartProps: state.shoppingCartState,
-    orderProps: state.orderState
+    orderProps: state.orderState,
+    formProps: state.formState,
 })
 
-export default connect(mapStateToProps,{productQuantity, removeFromBasket, resetBasket, addOrder})(SideDrawer);
+export default connect(mapStateToProps,{productQuantity, removeFromBasket, resetBasket, addOrder, onChange})(SideDrawer);
