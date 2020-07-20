@@ -9,9 +9,7 @@ import {Button} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
 export function AdminManageEmployees() {
-    const [employeeToDelete, setEmployeeToDelete] = useState([]);
     const [data, setData] = useState([]);
-    const [isRedirect, setIsRedirect] = useState(false);
 
     //the same as componentDidMount()
     useEffect(() => {
@@ -21,67 +19,58 @@ export function AdminManageEmployees() {
     }, []);
 
     //TODO check this
-    function deleteAndRedirect() {
-        //TODO change this !!!!
-        /*
-        sendHttpRequest('DELETE', '/api/v1/admin/delete_employee').then(responseData => {
+    function deleteAndRefresh(id) {
+
+        sendHttpRequest('DELETE', '/api/v1/admin/delete_employee', JSON.stringify(id)).then(responseData => {
             console.log(responseData);
-            setIsRedirect(true);
+            window.location.reload();
         })
             .catch(err => {
                 console.log(err, err.data);
-                console.log("co jest");
                 //TODO catch error if cannot be deleted
             });
-         */
-        //setEmployeeToDelete({"213721372","maklowicz@mak.lowicz","eeeeeeeee","chef","2"});
-            setIsRedirect(true);
     }
-    if(isRedirect) {
-        //TODO change to proper uri
-        return <Redirect to="/"/>;
-    }else {
-        return (
-            <div className="container">
-                <div>
-                    <div className={classes.listElements}>
-                        <br/>
-                        <h1>CHEFS</h1>
-                        <AdminEmployeesList data={data} roleOfEmployee = "chef" deleteAndRedirect={deleteAndRedirect.bind(this)}/>
-                        <Link to={{
-                            pathname : "/admin_add_employee",
-                            state : {
-                                role : "chef"
-                            }
-                        }}>
-                            <Button
-                                className="mt-auto font-weight-bold"
-                                variant="dark"
-                                block>
-                                Add Chef
-                            </Button>
-                        </Link>
-                        <br/>
-                        <h1>WAITERS</h1>
-                        <AdminEmployeesList data={data} roleOfEmployee = "waiter" />
-                        <Link to={{
-                            pathname : "/admin_add_employee",
-                            state: {
-                                role: "waiter"
-                            }
-                        }}>
-                            <Button
-                                className="mt-auto font-weight-bold"
-                                variant="dark"
-                                block>
-                                Add Waiter
-                            </Button>
-                        </Link>
-                    </div>
+
+    return (
+        <div className="container">
+            <div>
+                <div className={classes.listElements}>
+                    <br/>
+                    <h1>CHEFS</h1>
+                    <AdminEmployeesList data={data} roleOfEmployee = "chef" deleteAndRefresh={deleteAndRefresh.bind(this)}/>
+                    <Link to={{
+                        pathname : "/admin_add_employee",
+                        state : {
+                            role : "chef"
+                        }
+                    }}>
+                        <Button
+                            className="mt-auto font-weight-bold"
+                            variant="dark"
+                            block>
+                            Add Chef
+                        </Button>
+                    </Link>
+                    <br/>
+                    <h1>WAITERS</h1>
+                    <AdminEmployeesList data={data} roleOfEmployee = "waiter" deleteAndRefresh={deleteAndRefresh.bind(this)}/>
+                    <Link to={{
+                        pathname : "/admin_add_employee",
+                        state: {
+                            role: "waiter"
+                        }
+                    }}>
+                        <Button
+                            className="mt-auto font-weight-bold"
+                            variant="dark"
+                            block>
+                            Add Waiter
+                        </Button>
+                    </Link>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 
 
 }

@@ -10,7 +10,6 @@ import {Link} from "react-router-dom";
 
 export function AdminManageDishes() {
     const [data, setData] = useState([]);
-    const [isRedirect, setIsRedirect] = useState(false);
 
     //the same as componentDidMount()
     useEffect(() => {
@@ -20,84 +19,76 @@ export function AdminManageDishes() {
     }, []);
 
     //TODO check this
-    function deleteAndRedirect() {
-        //TODO change this !!!!
-        /*
-        sendHttpRequest('DELETE', '/api/v1/admin/delete_employee').then(responseData => {
+    function deleteAndRefresh(id) {
+        console.log(id);
+        sendHttpRequest('DELETE', '/api/v1/admin/delete_dish', JSON.stringify(id)).then(responseData => {
             console.log(responseData);
-            setIsRedirect(true);
+            //refresh below
+            window.location.reload();
         })
             .catch(err => {
                 console.log(err, err.data);
-                console.log("co jest");
                 //TODO catch error if cannot be deleted
             });
-         */
-        //setEmployeeToDelete({"213721372","maklowicz@mak.lowicz","eeeeeeeee","chef","2"});
-        setIsRedirect(true);
     }
-    if(isRedirect) {
-        //TODO change to proper uri
-        return <Redirect to="/"/>;
-    }else {
-        return (
-            <div className="container">
-                <div>
-                    <div className={classes.listElements}>
-                        <br/>
-                        <h1>BREAKFASTS</h1>
-                        <AdminDishesList data={data} typeOfDish = "breakfast" deleteAndRedirect={deleteAndRedirect.bind(this)}/>
-                        <Link to={{
-                            pathname : "/admin_add_dish",
-                            state : {
-                                type : "breakfast"
-                            }
-                        }}>
-                            <Button
-                                className="mt-auto font-weight-bold"
-                                variant="dark"
-                                block>
-                                Add Breakfast
-                            </Button>
-                        </Link>
-                        <br/>
-                        <h1>DINNERS</h1>
-                        <AdminDishesList data={data} typeOfDish = "dinner" deleteAndRedirect={deleteAndRedirect.bind(this)}/>
-                        <Link to={{
-                            pathname : "/admin_add_dish",
-                            state : {
-                                type : "dinner"
-                            }
-                        }}>
-                            <Button
-                                className="mt-auto font-weight-bold"
-                                variant="dark"
-                                block>
-                                Add Dinner
-                            </Button>
-                        </Link>
-                        <br/>
-                        <h1>APPETIZERS</h1>
-                        <AdminDishesList data={data} typeOfDish = "appetizer" deleteAndRedirect={deleteAndRedirect.bind(this)}/>
-                        <Link to={{
-                            pathname : "/admin_add_dish",
-                            state : {
-                                type : "appetizer"
-                            }
-                        }}>
-                            <Button
-                                className="mt-auto font-weight-bold"
-                                variant="dark"
-                                block>
-                                Add Appetizer
-                            </Button>
-                        </Link>
-                        <br/>
-                    </div>
+
+    return (
+        <div className="container">
+            <div>
+                <div className={classes.listElements}>
+                    <br/>
+                    <h1>BREAKFASTS</h1>
+                    <AdminDishesList data={data} typeOfDish = "breakfast" deleteAndRefresh={deleteAndRefresh.bind(this)}/>
+                    <Link to={{
+                        pathname : "/admin_add_dish",
+                        state : {
+                            type : "breakfast"
+                        }
+                    }}>
+                        <Button
+                            className="mt-auto font-weight-bold"
+                            variant="dark"
+                            block>
+                            Add Breakfast
+                        </Button>
+                    </Link>
+                    <br/>
+                    <h1>DINNERS</h1>
+                    <AdminDishesList data={data} typeOfDish = "dinner" deleteAndRefresh={deleteAndRefresh.bind(this)}/>
+                    <Link to={{
+                        pathname : "/admin_add_dish",
+                        state : {
+                            type : "dinner"
+                        }
+                    }}>
+                        <Button
+                            className="mt-auto font-weight-bold"
+                            variant="dark"
+                            block>
+                            Add Dinner
+                        </Button>
+                    </Link>
+                    <br/>
+                    <h1>APPETIZERS</h1>
+                    <AdminDishesList data={data} typeOfDish = "appetizer" deleteAndRefresh={deleteAndRefresh.bind(this)}/>
+                    <Link to={{
+                        pathname : "/admin_add_dish",
+                        state : {
+                            type : "appetizer"
+                        }
+                    }}>
+                        <Button
+                            className="mt-auto font-weight-bold"
+                            variant="dark"
+                            block>
+                            Add Appetizer
+                        </Button>
+                    </Link>
+                    <br/>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 
 
 }

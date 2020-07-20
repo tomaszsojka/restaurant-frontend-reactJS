@@ -9,8 +9,8 @@ export class AdminDishesList extends React.Component {
 
     }
 
-    deleteAndRedirect() {
-        this.props.deleteAndRedirect();
+    doSubmitDelete(id) {
+        this.props.deleteAndRefresh(id);
     }
 
     render() {
@@ -29,7 +29,7 @@ export class AdminDishesList extends React.Component {
                             <td><Button
                                 className="mt-auto font-weight-bold"
                                 variant="danger"
-                                onClick={this.deleteAndRedirect.bind(this)}
+                                onClick={() => this.doSubmitDelete(dish.id)}
                                 block>Delete</Button>
                             </td>
                         </tr>)}
