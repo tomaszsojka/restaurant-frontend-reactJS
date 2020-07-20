@@ -6,3 +6,13 @@
 .container {
     vertical-align: middle
 }
+
+.img{
+    vertical-align: center;
+    text-align: center;
+    width: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}

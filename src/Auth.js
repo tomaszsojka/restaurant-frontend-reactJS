@@ -32,6 +32,10 @@ class Auth {
         return window.sessionStorage.getItem('email');
     }
 
+    getPhoneNumber() {
+        return window.sessionStorage.getItem('phoneNumber');
+    }
+
     // getToken() {
     //     return window.sessionStorage.getItem('token');
     // }
