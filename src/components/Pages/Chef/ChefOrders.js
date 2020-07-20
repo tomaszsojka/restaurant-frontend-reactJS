@@ -3,6 +3,7 @@ import classes from "../../Forms/Forms.module.css";
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import {Button, Table} from "react-bootstrap";
+import {transferToWaiter} from "../../../actions/transferToWaiter";
 
 const ChefOrders = props =>
 {
@@ -12,27 +13,31 @@ const ChefOrders = props =>
                     <hr/>
                     <div className={classes.boxContainer}>
                         <h1>Chef panel</h1>
-                        {props.orderProps.map((order) => { return(
+                        {props.orderPropsChef.listOfOrders.map((order) => { return(
                            <div>
                                <h1> {order.table} </h1>
                                            <Table responsive>
+                                               <thead>
                                                <tr>
                                                    <th>Name</th>
                                                    <th>Quantity</th>
 
                                                </tr>
-                                               {order.listOfCurrentThings.map((meal) => {
-                                                       return (
-                                                           <tr>
+                                               </thead>
+                                               <tbody>
+                                               {order.listOfCurrentThings.map((meal) =>
+
+                                                           <tr >
                                                                <td>{meal.name}</td>
                                                                <td>{meal.quantity}</td>
                                                            </tr>
-                                                       )
-                                                   }
-                                               )
-                                               }
+
+                                               )}
+                                               </tbody>
                                            </Table>
-                               <Button  className="mt-auto font-weight-bold"
+
+                               <Button onClick={()=>props.transferToWaiter(props.orderPropsChef.listOfOrders,props.orderPropsWaiter.listOfOrders, order) }
+                                   className="mt-auto font-weight-bold"
                                         variant="dark"
                                         block>Done!</Button>
                                <br />
@@ -48,7 +53,8 @@ const ChefOrders = props =>
 };
 
 const mapStateToProps =  state => ({
-    orderProps: state.orderState.listOfOrders
+    orderPropsWaiter: state.waiterOrderState,
+    orderPropsChef: state.orderState
 })
 
-export default connect(mapStateToProps)(ChefOrders);
+export default connect(mapStateToProps, {transferToWaiter})(ChefOrders);

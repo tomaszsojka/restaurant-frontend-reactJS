@@ -1,22 +1,21 @@
-import {ADD_ORDER, RESET_ORDERS} from "../actions/types"
+import {ADD_ORDER_WAITER, RESET_ORDER_WAITER} from "../actions/types"
 
 const initialState = {
-    listOfOrders: [],
-    
+    listOfOrders: []
 }
 
 export default (state = initialState, action) => {
     switch(action.type) {
-        case RESET_ORDERS:
+        case RESET_ORDER_WAITER:
             return{
                 ...state,
                 listOfOrders: []
             };
-        case ADD_ORDER:
+        case ADD_ORDER_WAITER:
 
             return{
                 ...state,
-                listOfOrders: action.payload.listOfOrdersChef
+                listOfOrders: action.payload.listOfOrderWaiter
             };
 
         default:
