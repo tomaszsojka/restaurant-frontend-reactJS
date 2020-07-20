@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import "./Toolbar.css";
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import DrawerToggleButton from "../SideDrawer/DrawerToggleButton";
 //import mapStateToProps from "react-redux/lib/connect/mapStateToProps";
 import {connect} from "react-redux";
@@ -25,11 +25,12 @@ function Toolbar (props) {
                     </ul>
                 </div>
                 <div className={"toolbar_navigation"}>
-                    <NavLink className="acc_btn" activeClassName="active_acc_btn" to="/access_account">
-                        <ion-icon name="people-outline"></ion-icon>
-                    </NavLink>
+                    <Link to="/access_account">
+                        <ion-icon color = "dark" name="person"></ion-icon>
+                    </Link>
                     <DrawerToggleButton click={props.drawerClickHandler}/>
-                    <h1>{props.shoppingCardProps.shoppingCartNumber}</h1>
+
+                    {props.shoppingCardProps.shoppingCartNumber}
                 </div>
             </nav>
         </header>

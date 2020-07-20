@@ -8,10 +8,9 @@ import {addOrder} from "../../../actions/addOrderAction";
 import {sendHttpRequest} from "../../../Fetch/useFetch";
 import auth from "../../../Auth";
 import {onChange} from "../../../actions/onChange"
-
-
-
-
+import {Button} from "react-bootstrap";
+import {Link} from "react-router-dom";
+import classes from "../../Forms/Forms.module.css";
 
 
 const SideDrawer = props => {
@@ -21,6 +20,46 @@ const SideDrawer = props => {
     }
     const handleOnChange = (e) => {
         props.onChange(e.target.value);
+    }
+
+    function Notfication(status){
+        return(
+            <div>
+                {(() => {
+                    switch(status) {
+                        case 'C':
+                            return <div>
+                            <label htmlFor="Address">Please put you address here:</label>
+                                <input
+                            type = "Address"
+                            name = "Address"
+                            placeholder = "Address"
+                            value={props.formProps.form}
+                            onChange={handleOnChange}
+                     /> </div>;
+                        case 'W' || 'A':
+                            return  <div>
+                                <label>What table do you want to order?</label>
+                                <select value={props.formProps.form} onChange={handleOnChange} >
+                                    <option value="Table 1">Table 1</option>
+                                    <option value="Table 2">Table 2</option>
+                                    <option value="Table 3">Table 3</option>
+                                    <option value="Table 4">Table 4</option>
+                                    <option value="Table 5">Table 5</option>
+                                    <option value="Table 6">Table 6</option>
+                                </select>
+                            </div>;
+                        default:
+                            return  <div>
+                            <h1>You should log in, before taking an order!</h1>
+                                <Link to="/access_account">
+                                <Button>Proceed to log in</Button>
+                                </Link>
+                            </div>;
+                    }
+                })()}
+            </div>
+        );
     }
 
 
@@ -83,20 +122,13 @@ const SideDrawer = props => {
                 <div className="products">
                     {productsInCart}
                 </div>
-                {console.log(props.formProps.form)}
-                <select value={props.formProps.form} onChange={handleOnChange} >
-                    <option value="Table 1">Table 1</option>
-                    <option value="Table 2">Table 2</option>
-                    <option value="Table 3">Table 3</option>
-                    <option value="Table 4">Table 4</option>
-                    <option value="Table 5">Table 5</option>
-                    <option value="Table 6">Table 6</option>
-                </select>
+                {Notfication(auth.getRole())};
                 <div className="basketTotalContainer">
                     <h4>Basket total:   </h4>
                     <h4>€{props.shoppingCartProps.shoppingCartCost},00</h4>
                 </div>
-                <button className="buttonToPay" onClick={() => submitCart("table1")}>Pay for the order!</button>
+                <button className="buttonToPay" onClick={() => submitCart()}>Pay for the order!</button>
+
             </div>
         </div>
     );

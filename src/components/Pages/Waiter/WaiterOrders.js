@@ -8,8 +8,6 @@ import auth from "../../../Auth";
 const WaiterOrders = props =>
 {
     var sum = 0
-
-
     return (
         <div className="container">
             <div className={classes.mainContainer}>

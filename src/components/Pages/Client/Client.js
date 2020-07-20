@@ -50,7 +50,7 @@ export class Client extends React.Component {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <Link to={"/client"}>
+                                        <Link to={"/menu"}>
                                             <Button
                                                 className="mt-auto font-weight-bold"
                                                 variant="dark"

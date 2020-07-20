@@ -1,12 +1,72 @@
 import React from "react";
-import classes from "./ClientPages.module.css";
+import classes from "../../Forms/Forms.module.css";
 
-export class ClientOrders extends React.Component {
-    render() {
-        return (
-            <div className="container">
-                <h1>orders</h1>
+import {connect} from "react-redux";
+import {Button, Table} from "react-bootstrap";
+import {finalizeTransaction} from "../../../actions/fInalizeTransaction"
+import auth from "../../../Auth";
+const ClientOrders = props =>
+{
+    var sum = 0
+    return (
+        <div className="container">
+            <div className={classes.mainContainer}>
+                <hr/>
+                <div className={classes.boxContainer}>
+                    <h1>Client order panel</h1>
+                    {console.log(props.orderPropsWaiter.listOfOrderWaiter)}
+                    {props.orderPropsWaiter.listOfOrders.filter(order => order.waiter === auth.getEmail()).map((order) => { return(
+                            <div>
+
+                                <h1> {order.table} </h1>
+                                <Table responsive>
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Total</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {order.listOfCurrentThings.map((meal) => {
+                                            return (
+                                                <tr>
+                                                    <td>{meal.name}</td>
+                                                    <td>{meal.quantity}</td>
+                                                    <td>€{meal.price}</td>
+                                                    <td>€{sum += meal.price*meal.quantity}</td>
+                                                </tr>
+
+                                            )
+                                        }
+                                    )
+                                    }
+                                    </tbody>
+                                </Table>
+                                Total money for all of the products: € {sum}
+                                <Button onClick={()=>props.finalizeTransaction(props.orderPropsWaiter.listOfOrders, order) }
+                                        className="mt-auto font-weight-bold"
+                                        variant="dark"
+                                        block>Done!</Button>
+                                <br />
+
+                            </div>
+                        )
+                        }
+                    )
+                    }
+                </div>
             </div>
-        );
-    }
-}
+        </div>
+    );
+
+};
+
+const mapStateToProps =  state => ({
+    orderPropsWaiter: state.waiterOrderState,
+
+})
+
+export default connect(mapStateToProps, {finalizeTransaction})(ClientOrders);
