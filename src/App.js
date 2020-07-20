@@ -15,7 +15,7 @@ import {AccessAccount} from "./components/Pages/Guest/AccessAccount";
 import {UserAccountDetails} from "./components/Pages/UserAccountDetails";
 
 import {Client} from "./components/Pages/Client/Client";
-import {ClientOrders} from "./components/Pages/Client/ClientOrders";
+import ClientOrders from "./components/Pages/Client/ClientOrders";
 
 import {Admin} from "./components/Pages/Admin/Admin";
 import {AdminManageDishes} from "./components/Pages/Admin/AdminManageDishes";

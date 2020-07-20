@@ -3,12 +3,7 @@ import classes from "./DrawerToogleButton.module.css";
 
 
 const DrawerToggleButton = props => (
- <button className={classes.toggleButton} onClick={props.click}>
-     <div className={classes.toggleButton_line}/>
-     <div className={classes.toggleButton_line}/>
-     <div className={classes.toggleButton_line}/>
- </button>
-
+    <ion-icon name="basket" onClick={props.click}></ion-icon>
 );
 
 export default DrawerToggleButton;
